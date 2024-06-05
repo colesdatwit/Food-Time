@@ -25,6 +25,6 @@ public class Collidable : MonoBehaviour
 
     protected virtual void OnCollided(GameObject collidedObject)
     {
-        Debug.Log("Collided with " + collidedObject.name);
+        //Debug.Log("Collided with " + collidedObject.name);
     }
 }
