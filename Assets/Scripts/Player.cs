@@ -26,30 +26,30 @@ public class PlayerMovement : MonoBehaviour
         vertical = Input.GetAxisRaw("Vertical"); 
 
         if(horizontal==0&&vertical==0){     //checks to see if player is not moving IDLE
-            anim.SetBool("isWalking",false);
-            anim.SetBool("isWalkingDown",false);
-            anim.SetBool("isWalkingUp",false);
             anim.SetBool("isIdle", true);
+            anim.SetBool("isWalking",false);
+            anim.SetBool("isWalkingUp",false);
+            anim.SetBool("isWalkingDown", false);
         }
         if(horizontal>0){       //checks to see if player is WALKING RIGHT
             gameObject.transform.localScale = new Vector3(-5,5,5);
-            anim.SetBool("isIdle",false);
-            anim.SetBool("isWalkingDown",false);
+            anim.SetBool("isIdle", false);
+            anim.SetBool("isWalking",true);
             anim.SetBool("isWalkingUp",false);
-            anim.SetBool("isWalking", true);
+            anim.SetBool("isWalkingDown", false);
         }
         if(horizontal<0){       //checks to see if player is WALKING LEFT
             gameObject.transform.localScale = new Vector3(5,5,5);
-            anim.SetBool("isIdle",false);
-            anim.SetBool("isWalkingDown",false);
+            anim.SetBool("isIdle", false);
+            anim.SetBool("isWalking",true);
             anim.SetBool("isWalkingUp",false);
-            anim.SetBool("isWalking", true);
+            anim.SetBool("isWalkingDown", false);
         }
         if(vertical>0&&horizontal==0){      //checks if player not moving horizontally and MOVING UP 
             anim.SetBool("isIdle", false);
             anim.SetBool("isWalking",false);
-            anim.SetBool("isWalkingDown",false);
-            anim.SetBool("isWalkingUp", true);
+            anim.SetBool("isWalkingUp",true);
+            anim.SetBool("isWalkingDown", false);
         }
         if(vertical<0&&horizontal==0){      //checks if player not moving horizontally and MOVING DOWN
             anim.SetBool("isIdle", false);
