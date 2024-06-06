@@ -58,11 +58,11 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("isWalkingDown", true);
         }
         
-        //if(anim.GetBool("isEquipped")){     //if weapon equipped
+        //if(anim.GetBool("isEquipped")){     
         //  mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         //
 
-        //if(Input.GetKeyDown(KeyCode.X)){        //when x is pressed
+        //if(Input.GetKeyDown(KeyCode.X)){        //when e is pressed
         //    if(anim.GetBool("isEquipped"))
         //    {
         //        anim.SetBool("isEquipped", false);
@@ -79,6 +79,7 @@ public class PlayerMovement : MonoBehaviour
     {  
         body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
 
+        gameObject.transform.position = new Vector3(gameObject.transform.position.x,gameObject.transform.position.y,gameObject.transform.position.y);
         // (anim.GetBool("isEquipped")){
         //  Vector2 lookDir = mousePos - body.position;
         //  float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
