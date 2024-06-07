@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7610579885728233355}
   - component: {fileID: 4546303204832126136}
   - component: {fileID: 8470032385830519937}
-  - component: {fileID: 3160398692100801786}
+  - component: {fileID: 5013830471084565539}
   m_Layer: 0
   m_Name: Counter
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 237676452648332682}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.5, y: 3.12, z: -0.5}
+  m_LocalPosition: {x: 5.5, y: 3.12, z: 5}
   m_LocalScale: {x: 6.25, y: 6.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -75,12 +75,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1193482706, guid: a19619f57bdccb64f9995b3ad7b2878e, type: 3}
+  m_Sprite: {fileID: -538508544, guid: a19619f57bdccb64f9995b3ad7b2878e, type: 3}
   m_Color: {r: 0.690566, g: 0.690566, b: 0.690566, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.16, y: 0.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -122,8 +122,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.2}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 0.16, y: 0.24}
+    newSize: {x: 0.16, y: 0.24}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -131,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.15, y: 0.15}
   m_EdgeRadius: 0
---- !u!114 &3160398692100801786
+--- !u!114 &5013830471084565539
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 237676452648332682}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bbd2b22bba51f7469c40deba113a0a8, type: 3}
+  m_Script: {fileID: 11500000, guid: 93d789bd7695e7342b53a6db0cdd70a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   filt:

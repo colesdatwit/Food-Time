@@ -9,7 +9,7 @@ public class Interactable : Collidable
     protected override void OnCollided(GameObject collidedObject)
     {
         if(collidedObject.tag=="Player"){
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 OnInteract();
             }
@@ -21,7 +21,7 @@ public class Interactable : Collidable
     {
         if (!isInteracted)
         {
-            isInteracted = true;
+            //isInteracted = true;
             Debug.Log("INTERACT WITH " + name);
         }        
     }

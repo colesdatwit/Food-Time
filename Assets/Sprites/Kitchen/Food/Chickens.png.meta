@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a19619f57bdccb64f9995b3ad7b2878e
+guid: 9f528a1e35bccb744a74cf4f1c255793
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -162,13 +162,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Counter_0
+      name: Chickens_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 16
-        height: 24
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,20 +176,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4658cc70bb1246c4f96f0d8b427119eb
-      internalID: -523723800
+      spriteID: 81eff89e52fc6384e9766129a8d98826
+      internalID: -1524947151
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Counter_1
+      name: Chickens_1
       rect:
         serializedVersion: 2
         x: 16
         y: 0
         width: 16
-        height: 24
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,29 +197,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd18758677cf81743818eb88b4a1c995
-      internalID: -2093022204
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Counter_2
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 16
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8bd05e35475ed274f84fc63579b8b9d5
-      internalID: -538508544
+      spriteID: b3fa250ae3575db42881907918b252a2
+      internalID: -1085537790
       vertices: []
       indices: 
       edges: []
@@ -235,9 +214,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Counter_0: -523723800
-      Counter_1: -2093022204
-      Counter_2: -538508544
+      Chickens_0: -1524947151
+      Chickens_1: -1085537790
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

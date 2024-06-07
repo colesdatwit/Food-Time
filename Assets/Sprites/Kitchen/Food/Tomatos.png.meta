@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a19619f57bdccb64f9995b3ad7b2878e
+guid: 8c54b5b7eeaf1e1468c790d25b5e24ab
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -162,13 +162,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Counter_0
+      name: Tomatos_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 24
+        width: 14
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,20 +176,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4658cc70bb1246c4f96f0d8b427119eb
-      internalID: -523723800
+      spriteID: b4aeba04189e7d14789abc4e6aaf5256
+      internalID: 2004872731
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Counter_1
+      name: Tomatos_1
       rect:
         serializedVersion: 2
-        x: 16
+        x: 14
         y: 0
-        width: 16
-        height: 24
+        width: 14
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,29 +197,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd18758677cf81743818eb88b4a1c995
-      internalID: -2093022204
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Counter_2
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 16
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8bd05e35475ed274f84fc63579b8b9d5
-      internalID: -538508544
+      spriteID: f3f921390ecc65e4eb27c62fb2884d22
+      internalID: 229812190
       vertices: []
       indices: 
       edges: []
@@ -235,9 +214,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Counter_0: -523723800
-      Counter_1: -2093022204
-      Counter_2: -538508544
+      Tomatos_0: 2004872731
+      Tomatos_1: 229812190
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a19619f57bdccb64f9995b3ad7b2878e
+guid: 129ce021a9a13624c93fa66f6cd028a4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -162,13 +162,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Counter_0
+      name: Cheese_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 24
+        width: 11
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,20 +176,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4658cc70bb1246c4f96f0d8b427119eb
-      internalID: -523723800
+      spriteID: 3362a93211bb02d4fb27c503788bf80a
+      internalID: -1048908230
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Counter_1
+      name: Cheese_1
       rect:
         serializedVersion: 2
-        x: 16
+        x: 11
         y: 0
-        width: 16
-        height: 24
+        width: 11
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,29 +197,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd18758677cf81743818eb88b4a1c995
-      internalID: -2093022204
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Counter_2
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 16
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8bd05e35475ed274f84fc63579b8b9d5
-      internalID: -538508544
+      spriteID: b2baf68845c153047a8791a5b0c7441b
+      internalID: -1019734605
       vertices: []
       indices: 
       edges: []
@@ -235,9 +214,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Counter_0: -523723800
-      Counter_1: -2093022204
-      Counter_2: -538508544
+      Cheese_0: -1048908230
+      Cheese_1: -1019734605
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
