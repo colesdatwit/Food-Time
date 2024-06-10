@@ -76,8 +76,9 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {  
+    {
         body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
+        if (horizontal != 0 && vertical != 0) body.velocity = body.velocity.normalized * runSpeed;
 
         gameObject.transform.position = new Vector3(gameObject.transform.position.x,gameObject.transform.position.y,gameObject.transform.position.y);
         // (anim.GetBool("isEquipped")){
