@@ -2,27 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public delegate void InteractionDelegate(GameObject player);
+
 public class Interactable : Collidable
 {
-    private bool isInteracted = false;
+    public event InteractionDelegate OnInteractEvent;
 
     protected override void OnCollided(GameObject collidedObject)
     {
-        if(collidedObject.tag=="Player"){
+        if(collidedObject.CompareTag("Player"))
+        {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                OnInteract();
+                OnInteract(collidedObject);
             }
         }
         
     }
 
-    protected virtual void OnInteract()
+    protected virtual void OnInteract(GameObject player)
     {
-        if (!isInteracted)
+        if (OnInteractEvent != null)
         {
-            //isInteracted = true;
-            Debug.Log("INTERACT WITH " + name);
-        }        
+            OnInteractEvent.Invoke(player);
+        }
     }
 }

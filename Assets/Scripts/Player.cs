@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     float horizontal;
     float vertical;
 
+    Food heldFood;
+
     public float runSpeed = 5.0f;
     public Camera cam;
     Vector2 mousePos;
@@ -89,4 +91,57 @@ public class PlayerMovement : MonoBehaviour
 
 
     }
+
+    // Pick up food from the food reservoir
+    public bool PickUpFood(Reservoir foodRes)
+    {
+        if (heldFood != null)
+        {
+            Debug.Log("Cannot pickup " + foodRes.name + ". Your hands are full!");
+            return false;
+        }
+        //foodRes.PickUpFood();
+
+        Debug.Log("picked up " + foodRes.name);
+        heldFood = foodRes.ReservoirFood;
+        return true;
+    }
+
+    // pickup food from counter or workstation
+    public bool PickUpFood(Food food)
+    {
+        // check if player already has food in hands
+        if (heldFood != null)
+        {
+            // return false if hands are full
+            Debug.Log("Cannot pickup " + food.name + ". Your hands are full!");
+            return false;
+        }
+
+        // yipee! food in hands!
+        //Debug.Log("picked up " + food.name);
+        heldFood = food;
+        return true;
+    }
+
+    // Simple getter to see if player has food in hands
+    public bool HasFood()
+    {
+        return heldFood != null;
+    }
+
+    public Food getFood()
+    { 
+        return heldFood; 
+    }
+
+    // Place food function, returns the heldFood
+    public Food PlaceFood()
+    {
+        if (!HasFood()) return null;
+        Food temp = heldFood;
+        heldFood = null;
+        return temp;
+    }
+
 }
