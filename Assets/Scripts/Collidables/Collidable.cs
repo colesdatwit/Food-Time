@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Collidable : MonoBehaviour
+public abstract class Collidable : MonoBehaviour
 {
     private Collider2D coll;
     [SerializeField]
@@ -23,8 +23,6 @@ public class Collidable : MonoBehaviour
         }
     }
 
-    protected virtual void OnCollided(GameObject collidedObject)
-    {
-        //Debug.Log("Collided with " + collidedObject.name);
-    }
+    protected abstract void OnCollided(GameObject collidedObject);
+
 }
