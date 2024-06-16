@@ -13,7 +13,7 @@ public class Food : ScriptableObject
 
     public bool isCookable;
     public bool isWorkable;
-    public bool isMixable;
+  //  public bool isMixable;
 
     public List<string> mixableFoods; // populated with foodId that is mixable
 
