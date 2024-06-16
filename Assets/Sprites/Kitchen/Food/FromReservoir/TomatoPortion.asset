@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb188c789ecc0b74485cc3e65407441b, type: 3}
-  m_Name: DoughPortion
+  m_Name: TomatoPortion
   m_EditorClassIdentifier: 
-  foodName: 
-  foodSprite: {fileID: 0}
+  foodId: 
+  foodSprite: {fileID: 229812190, guid: 8c54b5b7eeaf1e1468c790d25b5e24ab, type: 3}
   value: 0

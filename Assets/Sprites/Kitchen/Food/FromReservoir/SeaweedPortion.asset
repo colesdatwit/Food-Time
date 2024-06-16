@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb188c789ecc0b74485cc3e65407441b, type: 3}
-  m_Name: RiceBag
+  m_Name: SeaweedPortion
   m_EditorClassIdentifier: 
-  foodName: 
-  foodSprite: {fileID: 0}
+  foodId: 
+  foodSprite: {fileID: -1723397586, guid: da717fae332e43644a4475992288d6ed, type: 3}
   value: 0
