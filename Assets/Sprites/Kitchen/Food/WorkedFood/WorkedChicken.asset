@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb188c789ecc0b74485cc3e65407441b, type: 3}
   m_Name: WorkedChicken
   m_EditorClassIdentifier: 
-  foodId: CutChicken
+  foodId: WorkedChicken
   foodSprite: {fileID: 21300000, guid: df9c43edb9f143447bbdba794a8d4d66, type: 3}
   value: 0
   isCookable: 0
