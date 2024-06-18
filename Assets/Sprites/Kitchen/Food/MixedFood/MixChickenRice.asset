@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb188c789ecc0b74485cc3e65407441b, type: 3}
-  m_Name: WorkedChicken
+  m_Name: MixChickenRice
   m_EditorClassIdentifier: 
-  foodId: WorkedChicken
-  foodSprite: {fileID: 21300000, guid: df9c43edb9f143447bbdba794a8d4d66, type: 3}
+  foodId: MixedChickenRice
+  foodSprite: {fileID: 21300000, guid: eb6f5655920a46f42b79c2d3948b443d, type: 3}
   value: 0
   isCookable: 0
   isWorkable: 0
