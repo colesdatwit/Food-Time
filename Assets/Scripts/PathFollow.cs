@@ -9,7 +9,7 @@ public class PathFollow : MonoBehaviour
     public int numberOfPoints;
     public float speed;
 
-private Vector3 actualPosition;
+    private Vector3 actualPosition;
     private int x;
     void Start()
     {
