@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8676912934369019996}
   - component: {fileID: 2803076977560308754}
+  - component: {fileID: 1118077265383006472}
   m_Layer: 0
   m_Name: Customer
   m_TagString: Untagged
@@ -84,3 +85,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1118077265383006472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5134718795378320402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a24db81bc5ff53948a7b26c1c3a5e377, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obj: {fileID: 5134718795378320402}
+  pathPoints:
+  - {fileID: 5139526897937481698, guid: 778c2684dc71f6444b4de02ab0c1a0c6, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  numberOfPoints: 3
+  speed: 3
