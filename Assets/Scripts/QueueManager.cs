@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using System.Threading;
 public class QueueManager : MonoBehaviour
 {
     public GameObject npcPrefab; // Prefab of the NPC, assign 'customer' prefab here
@@ -68,6 +68,7 @@ public class QueueManager : MonoBehaviour
     {
         if (positionIndex >= 0 && positionIndex < queuePositions.Length)
         {
+            Thread.Sleep(1000);
             GameObject newNPC = Instantiate(npcPrefab, queuePositions[positionIndex].position, Quaternion.identity);
             Customer npcScript = newNPC.GetComponent<Customer>();
             if (npcScript != null)
