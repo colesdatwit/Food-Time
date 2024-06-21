@@ -10,8 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb188c789ecc0b74485cc3e65407441b, type: 3}
-  m_Name: CheesePortionj
+  m_Name: MixDoughSauce
   m_EditorClassIdentifier: 
-  foodName: Cheese
-  foodSprite: {fileID: -1019734605, guid: 129ce021a9a13624c93fa66f6cd028a4, type: 3}
+  foodId: MixDoughWorkedSauce
+  foodSprite: {fileID: 21300000, guid: b8f52474ee3ae2940a942a18f9b2baeb, type: 3}
   value: 0
+  isCookable: 0
+  isWorkable: 0
+  mixableFoods: []

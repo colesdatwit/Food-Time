@@ -6,6 +6,8 @@ public class Counter : Interactable
 {
     private Food foodOnCounter;
 
+    bool mixingCounter;
+    bool workingCounter;
     protected override void OnInteract(GameObject player)
     {
         PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();

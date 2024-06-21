@@ -10,8 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb188c789ecc0b74485cc3e65407441b, type: 3}
-  m_Name: TomatoPortion
+  m_Name: NewFood
   m_EditorClassIdentifier: 
-  foodName: 
+  foodId: 
   foodSprite: {fileID: 0}
   value: 0
+  isCookable: 0
+  isWorkable: 0
+  mixableFoods: []
