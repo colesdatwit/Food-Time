@@ -49,7 +49,7 @@ public class Counter : Interactable
     {
         if(firstInteract)
         {
-            foodObject = Instantiate(foodObjectSpawner,new Vector3(transform.position.x,transform.position.y,transform.position.z-1),Quaternion.identity);
+            foodObject = Instantiate(foodObjectSpawner,new Vector3(transform.position.x,transform.position.y+(float)0.5,transform.position.z-1),Quaternion.identity);
             firstInteract=false;
         }
         foodObject.GetComponent<SpriteRenderer>().sprite=player.heldFood.foodSprite;
