@@ -13,5 +13,8 @@ MonoBehaviour:
   m_Name: DoughPortion
   m_EditorClassIdentifier: 
   foodId: 
-  foodSprite: {fileID: 1321899218, guid: 35289da05d405b740a3d1589d1448d28, type: 3}
+  foodSprite: {fileID: 21300000, guid: a982230db0916924f8983937606cf786, type: 3}
   value: 0
+  isCookable: 0
+  isWorkable: 0
+  mixableFoods: []
