@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb188c789ecc0b74485cc3e65407441b, type: 3}
   m_Name: SeaweedPortion
   m_EditorClassIdentifier: 
-  foodId: 
+  foodId: SeaweedPortion
   foodSprite: {fileID: -1723397586, guid: da717fae332e43644a4475992288d6ed, type: 3}
   value: 0
+  isCookable: 0
+  isWorkable: 0
+  mixableFoods: []

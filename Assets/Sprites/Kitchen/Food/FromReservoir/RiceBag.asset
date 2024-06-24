@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb188c789ecc0b74485cc3e65407441b, type: 3}
   m_Name: RiceBag
   m_EditorClassIdentifier: 
-  foodId: 
+  foodId: RiceBag
   foodSprite: {fileID: 208389660, guid: 641d98294292f7f4c97e45f055a45038, type: 3}
   value: 0
+  isCookable: 0
+  isWorkable: 0
+  mixableFoods: []

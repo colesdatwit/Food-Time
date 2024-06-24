@@ -1,13 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class Counter : Interactable
 {
     private Food foodOnCounter;
 
+    public GameObject foodObjectSpawner;
+    GameObject foodObject;
+    bool firstInteract = true;
+
     bool mixingCounter;
     bool workingCounter;
+
     protected override void OnInteract(GameObject player)
     {
         PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
@@ -41,7 +47,14 @@ public class Counter : Interactable
     // responsible for adding food to counter
     private void PlaceFood(PlayerMovement player)
     {
+        if(firstInteract)
+        {
+            foodObject = Instantiate(foodObjectSpawner,new Vector3(transform.position.x,transform.position.y,transform.position.z-1),Quaternion.identity);
+            firstInteract=false;
+        }
+        foodObject.GetComponent<SpriteRenderer>().sprite=player.heldFood.foodSprite;
         foodOnCounter = player.PlaceFood();
+        
 
         Debug.Log($"Placed {foodOnCounter.name} on the counter.");
     }
@@ -53,6 +66,7 @@ public class Counter : Interactable
         {
             Debug.Log($"Picked up {foodOnCounter.name} from the counter.");
             foodOnCounter = null;
+            foodObject.GetComponent<SpriteRenderer>().sprite=null;
         }
         else if (!player.PickUpFood(foodOnCounter))
         {
