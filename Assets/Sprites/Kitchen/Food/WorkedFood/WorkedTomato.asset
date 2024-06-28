@@ -15,6 +15,14 @@ MonoBehaviour:
   foodId: WorkedTomato
   foodSprite: {fileID: 21300000, guid: 33cdc213d97ee344fa3cca2fb7d3d8e9, type: 3}
   value: 0
+  isBakeable: 0
   isCookable: 0
   isWorkable: 0
-  mixableFoods: []
+  isMixable: 1
+  mixableFoodsIds:
+  - WorkedDough
+  bakeEvolveId: 
+  cookEvolveId: 
+  workEvolveId: 
+  mixEvolveId:
+  - DoughSauce

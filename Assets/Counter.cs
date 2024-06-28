@@ -1,19 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations;
 
 public class Counter : Interactable
 {
-    private Food foodOnCounter;
+    public Food foodOnCounter;
+    public FoodDatabase foodDatabase; // Reference to the Food Database
 
     public GameObject foodObjectSpawner;
     GameObject foodObject;
     bool firstInteract = true;
 
-    bool mixingCounter;
-    bool workingCounter;
-
+    public bool isMixingCounter;
+    public bool isWorkingCounter;
+    public bool isOven;
+    public bool isStove;
     protected override void OnInteract(GameObject player)
     {
         PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
@@ -40,6 +43,15 @@ public class Counter : Interactable
                     return;
                 }
                 Debug.Log($"buddy! get ur eyes checked! theres nothin on that dang counter");
+            }
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                Debug.Log($"pressed R on {GetType()}");
+
+                if (isMixingCounter) Mix(playerMovement);
+                if (isWorkingCounter) Work();
+                if (isOven) Bake();
+                if (isStove) Cook();
             }
         }
     }
@@ -73,4 +85,117 @@ public class Counter : Interactable
             Debug.Log($"Cannot pick up {foodOnCounter.name}, likely due to full hands.");
         }
     }
+
+    public Food GetFood()
+    {
+        return foodOnCounter;
+    }
+
+    public string GetType()
+    {
+        if (isMixingCounter) return "Mix";
+        if (isWorkingCounter) return "Work";
+        if (isOven) return "Oven";
+        return "Normal";
+    }
+
+
+    private void Mix(PlayerMovement player)
+    {
+        if (foodOnCounter != null && foodOnCounter.isMixable)
+        {
+            Food heldFood = player.getFood();
+            if (heldFood != null)
+            {
+                foreach (string mixableId in foodOnCounter.mixableFoodsIds)
+                {
+                    if (heldFood.foodId == mixableId)
+                    {
+                        var newFood = foodDatabase.GetFoodById(foodOnCounter.mixEvolveId[0]);
+                        if (newFood != null)
+                        {
+                            foodOnCounter = newFood;
+                            Debug.Log($"Mixed and evolved into {foodOnCounter.name}");
+                            return;
+                        }
+                    }
+                }
+                Debug.Log("Held food is not mixable with the food on the counter.");
+            }
+            else
+            {
+                Debug.Log("Player is not holding any food to mix.");
+            }
+        }
+        else
+        {
+            Debug.Log("Food on the counter is not mixable.");
+        }
+    }
+
+    private void Work()
+    {
+        if (foodOnCounter != null && foodOnCounter.isWorkable)
+        {
+            Debug.Log($"entered work");
+
+            // Example working logic: get the work evolution ID and fetch the new food object
+            var newFood = foodDatabase.GetFoodById(foodOnCounter.workEvolveId);
+            if (newFood != null)
+            {
+                foodOnCounter = newFood;
+                Debug.Log($"Worked and evolved into {foodOnCounter.name}");
+            }
+            else
+            {
+                Debug.Log("BakeEvolveId not found in the Food Database");
+            }
+        }
+    }
+
+    private void Bake()
+    {
+        if (foodOnCounter != null && foodOnCounter.isCookable)
+        {
+            // Example baking logic: get the bake evolution ID and fetch the new food object
+            var newFood = foodDatabase.GetFoodById(foodOnCounter.bakeEvolveId);
+            if (newFood != null)
+            {
+                foodOnCounter = newFood;
+                Debug.Log($"Baked and evolved into {foodOnCounter.name}");
+            }
+            else
+            {
+                Debug.Log("BakeEvolveId not found in the Food Database");
+            }
+        }
+    }
+
+    private void Cook()
+    {
+        if (foodOnCounter != null && foodOnCounter.isCookable)
+        {
+            // Example cooking logic: get the cook evolution ID and fetch the new food object
+            var newFood = foodDatabase.GetFoodById(foodOnCounter.cookEvolveId);
+            if (newFood != null)
+            {
+                foodOnCounter = newFood;
+                Debug.Log($"Cooked and evolved into {foodOnCounter.name}");
+            }
+            else
+            {
+                Debug.Log("CookEvolveId not found in the Food Database");
+            }
+        }
+    }
+
+    private void Delete(Food food)
+    {
+        if (food != null)
+        {
+            Debug.Log($"Deleted {food.name} from the counter.");
+            foodOnCounter = null;
+        }
+    }
+
 }

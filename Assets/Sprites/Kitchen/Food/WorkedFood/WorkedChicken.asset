@@ -15,6 +15,16 @@ MonoBehaviour:
   foodId: WorkedChicken
   foodSprite: {fileID: 21300000, guid: df9c43edb9f143447bbdba794a8d4d66, type: 3}
   value: 0
+  isBakeable: 0
   isCookable: 0
   isWorkable: 0
-  mixableFoods: []
+  isMixable: 1
+  mixableFoodsIds:
+  - RicePortion
+  - WorkedTomato
+  bakeEvolveId: 
+  cookEvolveId: 
+  workEvolveId: 
+  mixEvolveId:
+  - UncookedChickenRice
+  - UncookedChickenTomato

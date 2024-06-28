@@ -10,11 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb188c789ecc0b74485cc3e65407441b, type: 3}
-  m_Name: MixChickenRice
+  m_Name: RiceDish
   m_EditorClassIdentifier: 
-  foodId: MixedChickenRice
-  foodSprite: {fileID: 21300000, guid: eb6f5655920a46f42b79c2d3948b443d, type: 3}
+  foodId: RiceDish
+  foodSprite: {fileID: 21300000, guid: f88607ee5b39f254f9d870ed6a049e35, type: 3}
   value: 0
+  isBakeable: 0
   isCookable: 0
   isWorkable: 0
-  mixableFoods: []
+  isMixable: 0
+  mixableFoodsIds: []
+  bakeEvolveId: 
+  cookEvolveId: 
+  workEvolveId: 
+  mixEvolveId: []

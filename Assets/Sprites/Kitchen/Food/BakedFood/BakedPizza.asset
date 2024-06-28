@@ -10,11 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb188c789ecc0b74485cc3e65407441b, type: 3}
-  m_Name: NewFood
+  m_Name: BakedPizza
   m_EditorClassIdentifier: 
-  foodId: 
-  foodSprite: {fileID: 0}
+  foodId: BakedPizza
+  foodSprite: {fileID: 21300000, guid: 6282331f3e9ad504c920b864d664fb0c, type: 3}
   value: 0
+  isBakeable: 0
   isCookable: 0
   isWorkable: 0
-  mixableFoods: []
+  isMixable: 0
+  mixableFoodsIds: []
+  bakeEvolveId: 
+  cookEvolveId: 
+  workEvolveId: 
+  mixEvolveId: []
