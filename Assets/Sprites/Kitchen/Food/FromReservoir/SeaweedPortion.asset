@@ -15,6 +15,14 @@ MonoBehaviour:
   foodId: SeaweedPortion
   foodSprite: {fileID: -1723397586, guid: da717fae332e43644a4475992288d6ed, type: 3}
   value: 0
+  isBakeable: 0
   isCookable: 0
   isWorkable: 0
-  mixableFoods: []
+  isMixable: 1
+  mixableFoodsIds:
+  - CookedRice
+  bakeEvolveId: 
+  cookEvolveId: 
+  workEvolveId: 
+  mixEvolveId:
+  - RiceSeaweed

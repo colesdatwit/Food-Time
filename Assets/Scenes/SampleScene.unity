@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2983,6 +2982,7 @@ MonoBehaviour:
     maxNormalAngle: 0
   foodOnCounter: {fileID: 0}
   foodDatabase: {fileID: 11400000, guid: d8eca14d4c970f949ac036fb32c70179, type: 2}
+  foodObjectSpawner: {fileID: 4159796105410831336, guid: 54929d0a3df71694daebe4f794a806c7, type: 3}
   isMixingCounter: 0
   isWorkingCounter: 1
   isOven: 0
@@ -4246,6 +4246,7 @@ MonoBehaviour:
     maxNormalAngle: 0
   foodOnCounter: {fileID: 0}
   foodDatabase: {fileID: 11400000, guid: d8eca14d4c970f949ac036fb32c70179, type: 2}
+  foodObjectSpawner: {fileID: 0}
   isMixingCounter: 0
   isWorkingCounter: 0
   isOven: 0
@@ -5947,6 +5948,7 @@ MonoBehaviour:
     maxNormalAngle: 0
   foodOnCounter: {fileID: 0}
   foodDatabase: {fileID: 11400000, guid: d8eca14d4c970f949ac036fb32c70179, type: 2}
+  foodObjectSpawner: {fileID: 4159796105410831336, guid: 54929d0a3df71694daebe4f794a806c7, type: 3}
   isMixingCounter: 0
   isWorkingCounter: 0
   isOven: 0
@@ -8390,6 +8392,7 @@ MonoBehaviour:
     maxNormalAngle: 0
   foodOnCounter: {fileID: 0}
   foodDatabase: {fileID: 0}
+  foodObjectSpawner: {fileID: 0}
   isMixingCounter: 0
   isWorkingCounter: 0
   isOven: 0
@@ -10038,6 +10041,7 @@ MonoBehaviour:
     maxNormalAngle: 0
   foodOnCounter: {fileID: 0}
   foodDatabase: {fileID: 11400000, guid: d8eca14d4c970f949ac036fb32c70179, type: 2}
+  foodObjectSpawner: {fileID: 4159796105410831336, guid: 54929d0a3df71694daebe4f794a806c7, type: 3}
   isMixingCounter: 1
   isWorkingCounter: 0
   isOven: 0
@@ -11593,6 +11597,7 @@ MonoBehaviour:
     maxNormalAngle: 0
   foodOnCounter: {fileID: 0}
   foodDatabase: {fileID: 0}
+  foodObjectSpawner: {fileID: 0}
   isMixingCounter: 0
   isWorkingCounter: 0
   isOven: 0
@@ -13737,6 +13742,7 @@ MonoBehaviour:
     maxNormalAngle: 0
   foodOnCounter: {fileID: 0}
   foodDatabase: {fileID: 0}
+  foodObjectSpawner: {fileID: 0}
   isMixingCounter: 0
   isWorkingCounter: 0
   isOven: 0
@@ -14383,6 +14389,7 @@ MonoBehaviour:
     maxNormalAngle: 0
   foodOnCounter: {fileID: 0}
   foodDatabase: {fileID: 11400000, guid: d8eca14d4c970f949ac036fb32c70179, type: 2}
+  foodObjectSpawner: {fileID: 4159796105410831336, guid: 54929d0a3df71694daebe4f794a806c7, type: 3}
   isMixingCounter: 0
   isWorkingCounter: 0
   isOven: 1
@@ -14482,6 +14489,7 @@ MonoBehaviour:
     maxNormalAngle: 0
   foodOnCounter: {fileID: 0}
   foodDatabase: {fileID: 0}
+  foodObjectSpawner: {fileID: 0}
   isMixingCounter: 0
   isWorkingCounter: 0
   isOven: 0
@@ -14761,6 +14769,7 @@ MonoBehaviour:
     maxNormalAngle: 0
   foodOnCounter: {fileID: 0}
   foodDatabase: {fileID: 0}
+  foodObjectSpawner: {fileID: 0}
   isMixingCounter: 0
   isWorkingCounter: 0
   isOven: 0
@@ -14998,6 +15007,7 @@ MonoBehaviour:
     maxNormalAngle: 0
   foodOnCounter: {fileID: 0}
   foodDatabase: {fileID: 0}
+  foodObjectSpawner: {fileID: 0}
   isMixingCounter: 0
   isWorkingCounter: 0
   isOven: 0
@@ -15463,6 +15473,7 @@ MonoBehaviour:
     maxNormalAngle: 0
   foodOnCounter: {fileID: 0}
   foodDatabase: {fileID: 0}
+  foodObjectSpawner: {fileID: 0}
   isMixingCounter: 0
   isWorkingCounter: 0
   isOven: 0
@@ -16718,6 +16729,7 @@ MonoBehaviour:
     maxNormalAngle: 0
   foodOnCounter: {fileID: 0}
   foodDatabase: {fileID: 0}
+  foodObjectSpawner: {fileID: 0}
   isMixingCounter: 0
   isWorkingCounter: 0
   isOven: 0
@@ -17676,6 +17688,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7017223345254166156, guid: 3bd2453cea96ba440a8016e0a3530784, type: 3}
+      propertyPath: foodObjectSpawner
+      value: 
+      objectReference: {fileID: 4159796105410831336, guid: 54929d0a3df71694daebe4f794a806c7, type: 3}
     - target: {fileID: 8653354575746495261, guid: 3bd2453cea96ba440a8016e0a3530784, type: 3}
       propertyPath: m_Name
       value: CatChef

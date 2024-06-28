@@ -19,8 +19,10 @@ MonoBehaviour:
   isCookable: 0
   isWorkable: 0
   isMixable: 0
-  mixableFoodsIds: []
+  mixableFoodsIds:
+  - CheesePortion
   bakeEvolveId: CookedPizza
   cookEvolveId: 
   workEvolveId: 
-  mixEvolveId: []
+  mixEvolveId:
+  - UncookedPizza
