@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8694629191003917833}
   - component: {fileID: 3662653335215661532}
-  - component: {fileID: 3479477768064856350}
   m_Layer: 0
   m_Name: foodObject
   m_TagString: foodObject
@@ -85,15 +84,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3479477768064856350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4159796105410831336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8464096e8e56904ab7df03e3c1556e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

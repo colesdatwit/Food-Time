@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public Food heldFood;
 
     public GameObject foodObjectSpawner;
-    GameObject foodObject;
+    public GameObject foodObject;
 
     public float runSpeed = 5.0f;
     public Camera cam;
