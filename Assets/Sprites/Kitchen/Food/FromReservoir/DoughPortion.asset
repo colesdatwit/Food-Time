@@ -12,6 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb188c789ecc0b74485cc3e65407441b, type: 3}
   m_Name: DoughPortion
   m_EditorClassIdentifier: 
-  foodId: 
+  foodId: DoughPortion
   foodSprite: {fileID: 1321899218, guid: 35289da05d405b740a3d1589d1448d28, type: 3}
   value: 0
+  isBakeable: 0
+  isCookable: 0
+  isWorkable: 1
+  isMixable: 0
+  mixableFoodsIds: []
+  bakeEvolveId: 
+  cookEvolveId: 
+  workEvolveId: WorkedDough
+  mixEvolveId: []

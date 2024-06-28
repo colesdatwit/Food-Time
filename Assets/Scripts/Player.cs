@@ -124,6 +124,16 @@ public class PlayerMovement : MonoBehaviour
         return true;
     }
 
+    public void useCounter(Counter counter)
+    {
+        if (counter.GetFood() != null)
+        {
+          //  if (counter.getType() == "Mix") counter.
+          //  if (counter.getType() == "Work")
+          //  if (counter.getType() == "Oven") 
+        }
+    }
+
     // Simple getter to see if player has food in hands
     public bool HasFood()
     {

@@ -12,11 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb188c789ecc0b74485cc3e65407441b, type: 3}
   m_Name: CheesePortion
   m_EditorClassIdentifier: 
-  foodId: 
+  foodId: CheesePortion
   foodSprite: {fileID: -1019734605, guid: 129ce021a9a13624c93fa66f6cd028a4, type: 3}
   value: 0
+  isBakeable: 0
   isCookable: 0
   isWorkable: 0
-  isMixable: 0
-  mixableFoods:
-  - 
+  isMixable: 1
+  mixableFoodsIds:
+  - DoughSauce
+  bakeEvolveId: 
+  cookEvolveId: 
+  workEvolveId: 
+  mixEvolveId:
+  - UncookedPizza

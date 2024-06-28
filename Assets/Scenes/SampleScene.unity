@@ -2981,6 +2981,12 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  foodOnCounter: {fileID: 0}
+  foodDatabase: {fileID: 11400000, guid: d8eca14d4c970f949ac036fb32c70179, type: 2}
+  isMixingCounter: 0
+  isWorkingCounter: 1
+  isOven: 0
+  isStove: 0
 --- !u!4 &351777560 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 878168754885462110, guid: 778c2684dc71f6444b4de02ab0c1a0c6, type: 3}
@@ -4238,6 +4244,12 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  foodOnCounter: {fileID: 0}
+  foodDatabase: {fileID: 11400000, guid: d8eca14d4c970f949ac036fb32c70179, type: 2}
+  isMixingCounter: 0
+  isWorkingCounter: 0
+  isOven: 0
+  isStove: 0
 --- !u!1 &502364085
 GameObject:
   m_ObjectHideFlags: 0
@@ -5761,6 +5773,7 @@ GameObject:
   - component: {fileID: 732754234}
   - component: {fileID: 732754233}
   - component: {fileID: 732754232}
+  - component: {fileID: 732754236}
   m_Layer: 0
   m_Name: Oven
   m_TagString: Untagged
@@ -5906,6 +5919,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &732754236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732754231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d995a5a3e89fff478bc76f8f5cb82e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filt:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+  foodOnCounter: {fileID: 0}
+  foodDatabase: {fileID: 11400000, guid: d8eca14d4c970f949ac036fb32c70179, type: 2}
+  isMixingCounter: 0
+  isWorkingCounter: 0
+  isOven: 0
+  isStove: 1
 --- !u!1001 &733459269
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8343,6 +8388,12 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  foodOnCounter: {fileID: 0}
+  foodDatabase: {fileID: 0}
+  isMixingCounter: 0
+  isWorkingCounter: 0
+  isOven: 0
+  isStove: 0
 --- !u!4 &1108134686 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7610579885728233355, guid: 19f58924c1513e94981953e2f6a19378, type: 3}
@@ -9985,6 +10036,12 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  foodOnCounter: {fileID: 0}
+  foodDatabase: {fileID: 11400000, guid: d8eca14d4c970f949ac036fb32c70179, type: 2}
+  isMixingCounter: 1
+  isWorkingCounter: 0
+  isOven: 0
+  isStove: 0
 --- !u!1001 &1263787094
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11534,6 +11591,12 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  foodOnCounter: {fileID: 0}
+  foodDatabase: {fileID: 0}
+  isMixingCounter: 0
+  isWorkingCounter: 0
+  isOven: 0
+  isStove: 0
 --- !u!1 &1419472024
 GameObject:
   m_ObjectHideFlags: 0
@@ -12672,6 +12735,7 @@ GameObject:
   - component: {fileID: 1581705336}
   - component: {fileID: 1581705335}
   - component: {fileID: 1581705334}
+  - component: {fileID: 1581705337}
   m_Layer: 0
   m_Name: Rice
   m_TagString: Untagged
@@ -12817,6 +12881,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1581705337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581705332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b243c280cb9bb75429b1d231333a7abe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filt:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+  ReservoirFood: {fileID: 11400000, guid: cb3985eff8e31c44da0ec36e0da27bac, type: 2}
 --- !u!1001 &1582313808
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13644,6 +13735,12 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  foodOnCounter: {fileID: 0}
+  foodDatabase: {fileID: 0}
+  isMixingCounter: 0
+  isWorkingCounter: 0
+  isOven: 0
+  isStove: 0
 --- !u!4 &1662539931 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3312407941757498638, guid: e25336d8e69bb2648b64d6301d669fd3, type: 3}
@@ -14112,6 +14209,7 @@ GameObject:
   - component: {fileID: 1699407983}
   - component: {fileID: 1699407982}
   - component: {fileID: 1699407985}
+  - component: {fileID: 1699407986}
   m_Layer: 0
   m_Name: Pizza Oven
   m_TagString: Untagged
@@ -14257,6 +14355,38 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+--- !u!114 &1699407986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699407981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d995a5a3e89fff478bc76f8f5cb82e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filt:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+  foodOnCounter: {fileID: 0}
+  foodDatabase: {fileID: 11400000, guid: d8eca14d4c970f949ac036fb32c70179, type: 2}
+  isMixingCounter: 0
+  isWorkingCounter: 0
+  isOven: 1
+  isStove: 0
 --- !u!4 &1701132988 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 878168754885462110, guid: 778c2684dc71f6444b4de02ab0c1a0c6, type: 3}
@@ -14350,6 +14480,12 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  foodOnCounter: {fileID: 0}
+  foodDatabase: {fileID: 0}
+  isMixingCounter: 0
+  isWorkingCounter: 0
+  isOven: 0
+  isStove: 0
 --- !u!4 &1725317233 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 878168754885462110, guid: 778c2684dc71f6444b4de02ab0c1a0c6, type: 3}
@@ -14623,6 +14759,12 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  foodOnCounter: {fileID: 0}
+  foodDatabase: {fileID: 0}
+  isMixingCounter: 0
+  isWorkingCounter: 0
+  isOven: 0
+  isStove: 0
 --- !u!4 &1762456281 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 878168754885462110, guid: 778c2684dc71f6444b4de02ab0c1a0c6, type: 3}
@@ -14854,6 +14996,12 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  foodOnCounter: {fileID: 0}
+  foodDatabase: {fileID: 0}
+  isMixingCounter: 0
+  isWorkingCounter: 0
+  isOven: 0
+  isStove: 0
 --- !u!1001 &1789849495
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15313,6 +15461,12 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  foodOnCounter: {fileID: 0}
+  foodDatabase: {fileID: 0}
+  isMixingCounter: 0
+  isWorkingCounter: 0
+  isOven: 0
+  isStove: 0
 --- !u!4 &1819002571 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 878168754885462110, guid: 778c2684dc71f6444b4de02ab0c1a0c6, type: 3}
@@ -16562,6 +16716,12 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  foodOnCounter: {fileID: 0}
+  foodDatabase: {fileID: 0}
+  isMixingCounter: 0
+  isWorkingCounter: 0
+  isOven: 0
+  isStove: 0
 --- !u!4 &2002315756 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 878168754885462110, guid: 778c2684dc71f6444b4de02ab0c1a0c6, type: 3}
@@ -17355,6 +17515,10 @@ PrefabInstance:
     - target: {fileID: 559153131736610329, guid: 0318b5c4fd57cb74f8f5416cf7c65dec, type: 3}
       propertyPath: m_Name
       value: WorkingCounter
+      objectReference: {fileID: 0}
+    - target: {fileID: 963109588363183718, guid: 0318b5c4fd57cb74f8f5416cf7c65dec, type: 3}
+      propertyPath: filt.useDepth
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6749883428308654177, guid: 0318b5c4fd57cb74f8f5416cf7c65dec, type: 3}
       propertyPath: m_LocalPosition.x
