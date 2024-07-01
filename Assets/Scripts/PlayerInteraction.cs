@@ -25,6 +25,7 @@ public class PlayerInteraction : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
+        Debug.Log("Collided exit");
         if (other.CompareTag("Counter"))
         {
             isNearCounter = false;

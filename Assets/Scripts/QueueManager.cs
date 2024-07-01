@@ -68,7 +68,6 @@ public class QueueManager : MonoBehaviour
     {
         if (positionIndex >= 0 && positionIndex < queuePositions.Length)
         {
-            Thread.Sleep(1000);
             GameObject newNPC = Instantiate(npcPrefab, queuePositions[positionIndex].position, Quaternion.identity);
             Customer npcScript = newNPC.GetComponent<Customer>();
             if (npcScript != null)
