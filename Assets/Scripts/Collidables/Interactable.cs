@@ -12,12 +12,12 @@ public class Interactable : Collidable
     {
         if(collidedObject.CompareTag("Player"))
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.R))
             {
                 OnInteract(collidedObject);
             }
         }
-        
+
     }
 
     protected virtual void OnInteract(GameObject player)

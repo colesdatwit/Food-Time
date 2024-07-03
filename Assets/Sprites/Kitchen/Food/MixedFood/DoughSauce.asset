@@ -10,19 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb188c789ecc0b74485cc3e65407441b, type: 3}
-  m_Name: WorkedDough
+  m_Name: DoughSauce
   m_EditorClassIdentifier: 
-  foodId: WorkedDough
-  foodSprite: {fileID: 21300000, guid: 964a8c3916db21645ae7fa39effa459d, type: 3}
+  foodId: DoughSauce
+  foodSprite: {fileID: 21300000, guid: b8f52474ee3ae2940a942a18f9b2baeb, type: 3}
   value: 0
-  isBakeable: 0
+  isBakeable: 1
   isCookable: 0
   isWorkable: 0
-  isMixable: 1
-  mixableFoodsIds:
-  - WorkedTomato
-  bakeEvolveId: 
+  isMixable: 0
+  mixableFoodsIds: []
+  bakeEvolveId: CookedPizza
   cookEvolveId: 
   workEvolveId: 
-  mixEvolveId:
-  - DoughSauce
+  mixEvolveId: []

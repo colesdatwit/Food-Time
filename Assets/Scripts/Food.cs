@@ -11,11 +11,15 @@ public class Food : ScriptableObject
     public Sprite foodSprite; // For the visual representation of the food
     public int value;         // The value or amount of the food
 
+    public bool isBakeable;
     public bool isCookable;
     public bool isWorkable;
-  //  public bool isMixable;
+    public bool isMixable;
 
-    public List<string> mixableFoods; // populated with foodId that is mixable
-
+    public List<string> mixableFoodsIds; // populated with foodId that is mixable
+    public string bakeEvolveId; // populated with foodId that is mixable
+    public string cookEvolveId; // populated with foodId that is mixable
+    public string workEvolveId;
+    public List<string> mixEvolveId; // Populated with foodId that is mix-evolved
 
 }
