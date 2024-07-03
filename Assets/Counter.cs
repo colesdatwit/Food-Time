@@ -2,11 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class Counter : Interactable
 {
     public Food foodOnCounter;
     public FoodDatabase foodDatabase; // Reference to the Food Database
+
+    public GameObject foodObjectSpawner;
+    GameObject foodObject;
+    bool firstInteract = true;
 
     public bool isMixingCounter;
     public bool isWorkingCounter;
@@ -54,8 +59,14 @@ public class Counter : Interactable
     // responsible for adding food to counter
     private void PlaceFood(PlayerMovement player)
     {
-
+        if(firstInteract)
+        {
+            foodObject = Instantiate(foodObjectSpawner,new Vector3(transform.position.x,transform.position.y+(float)0.4,transform.position.z-1),Quaternion.identity);
+            firstInteract=false;
+        }
+        foodObject.GetComponent<SpriteRenderer>().sprite=player.heldFood.foodSprite;
         foodOnCounter = player.PlaceFood();
+        
 
         Debug.Log($"Placed {foodOnCounter.name} on the counter.");
     }
@@ -67,6 +78,7 @@ public class Counter : Interactable
         {
             Debug.Log($"Picked up {foodOnCounter.name} from the counter.");
             foodOnCounter = null;
+            foodObject.GetComponent<SpriteRenderer>().sprite=null;
         }
         else if (!player.PickUpFood(foodOnCounter))
         {
@@ -103,6 +115,9 @@ public class Counter : Interactable
                         if (newFood != null)
                         {
                             foodOnCounter = newFood;
+                            foodObject.GetComponent<SpriteRenderer>().sprite = newFood.foodSprite;
+                            player.heldFood = null;
+                            player.foodObject.GetComponent<SpriteRenderer>().sprite=null;
                             Debug.Log($"Mixed and evolved into {foodOnCounter.name}");
                             return;
                         }
@@ -132,6 +147,7 @@ public class Counter : Interactable
             if (newFood != null)
             {
                 foodOnCounter = newFood;
+                foodObject.GetComponent<SpriteRenderer>().sprite = newFood.foodSprite;
                 Debug.Log($"Worked and evolved into {foodOnCounter.name}");
             }
             else
@@ -150,6 +166,7 @@ public class Counter : Interactable
             if (newFood != null)
             {
                 foodOnCounter = newFood;
+                foodObject.GetComponent<SpriteRenderer>().sprite = newFood.foodSprite;
                 Debug.Log($"Baked and evolved into {foodOnCounter.name}");
             }
             else
@@ -168,6 +185,7 @@ public class Counter : Interactable
             if (newFood != null)
             {
                 foodOnCounter = newFood;
+                foodObject.GetComponent<SpriteRenderer>().sprite = newFood.foodSprite;
                 Debug.Log($"Cooked and evolved into {foodOnCounter.name}");
             }
             else

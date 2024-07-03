@@ -56,5 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Food-Time.sln"
+    "dotnet.defaultSolution": "Food-Time.sln",
+    "dotnet.preferCSharpExtension": true
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -9,7 +10,10 @@ public class PlayerMovement : MonoBehaviour
     float horizontal;
     float vertical;
 
-    Food heldFood;
+    public Food heldFood;
+
+    public GameObject foodObjectSpawner;
+    public GameObject foodObject;
 
     public float runSpeed = 5.0f;
     public Camera cam;
@@ -20,61 +24,57 @@ public class PlayerMovement : MonoBehaviour
         transform.eulerAngles = new Vector3 (0, 0, 0);
         body = GetComponent<Rigidbody2D>(); 
         anim = GetComponent<Animator>();
+        foodObject = Instantiate(foodObjectSpawner,transform.position,Quaternion.identity);
     }
 
     void Update ()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
-        vertical = Input.GetAxisRaw("Vertical"); 
+        vertical = Input.GetAxisRaw("Vertical");
 
-        if(horizontal==0&&vertical==0){     //checks to see if player is not moving IDLE
+        if (horizontal == 0 && vertical == 0)
+        {     //checks to see if player is not moving IDLE
             anim.SetBool("isIdle", true);
-            anim.SetBool("isWalking",false);
-            anim.SetBool("isWalkingUp",false);
+            anim.SetBool("isWalking", false);
+            anim.SetBool("isWalkingUp", false);
             anim.SetBool("isWalkingDown", false);
         }
-        if(horizontal>0){       //checks to see if player is WALKING RIGHT
-            gameObject.transform.localScale = new Vector3(-5,5,5);
+        if (horizontal > 0)
+        {       //checks to see if player is WALKING RIGHT
+            gameObject.transform.localScale = new Vector3(-5, 5, 5);
             anim.SetBool("isIdle", false);
-            anim.SetBool("isWalking",true);
-            anim.SetBool("isWalkingUp",false);
+            anim.SetBool("isWalking", true);
+            anim.SetBool("isWalkingUp", false);
             anim.SetBool("isWalkingDown", false);
+            foodObject.transform.position = new Vector3(gameObject.transform.position.x+(float)0.3,gameObject.transform.position.y-(float)0.45,gameObject.transform.position.z+1);
         }
-        if(horizontal<0){       //checks to see if player is WALKING LEFT
-            gameObject.transform.localScale = new Vector3(5,5,5);
+        if (horizontal < 0)
+        {       //checks to see if player is WALKING LEFT
+            gameObject.transform.localScale = new Vector3(5, 5, 5);
             anim.SetBool("isIdle", false);
-            anim.SetBool("isWalking",true);
-            anim.SetBool("isWalkingUp",false);
+            anim.SetBool("isWalking", true);
+            anim.SetBool("isWalkingUp", false);
             anim.SetBool("isWalkingDown", false);
+            foodObject.transform.position = new Vector3(gameObject.transform.position.x-(float)0.3,gameObject.transform.position.y-(float)0.45,gameObject.transform.position.z+1);
         }
-        if(vertical>0&&horizontal==0){      //checks if player not moving horizontally and MOVING UP 
+        if (vertical > 0 && horizontal == 0)
+        {      //checks if player not moving horizontally and MOVING UP 
             anim.SetBool("isIdle", false);
-            anim.SetBool("isWalking",false);
-            anim.SetBool("isWalkingUp",true);
+            anim.SetBool("isWalking", false);
+            anim.SetBool("isWalkingUp", true);
             anim.SetBool("isWalkingDown", false);
+            foodObject.transform.position = new Vector3(gameObject.transform.position.x,gameObject.transform.position.y+(float)0.5,gameObject.transform.position.z+1);
         }
-        if(vertical<0&&horizontal==0){      //checks if player not moving horizontally and MOVING DOWN
+        if (vertical < 0 && horizontal == 0)
+        {      //checks if player not moving horizontally and MOVING DOWN
             anim.SetBool("isIdle", false);
-            anim.SetBool("isWalking",false);
-            anim.SetBool("isWalkingUp",false);
+            anim.SetBool("isWalking", false);
+            anim.SetBool("isWalkingUp", false);
             anim.SetBool("isWalkingDown", true);
+            foodObject.transform.position = new Vector3(gameObject.transform.position.x,gameObject.transform.position.y-(float)0.55,gameObject.transform.position.z-1);
         }
-        
-        //if(anim.GetBool("isEquipped")){     
-        //  mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-        //
 
-        //if(Input.GetKeyDown(KeyCode.X)){        //when e is pressed
-        //    if(anim.GetBool("isEquipped"))
-        //    {
-        //        anim.SetBool("isEquipped", false);
-        //        transform.eulerAngles = new Vector3 (0, 0, 0);
-        //    }
-        //    else
-        //    {
-        //        anim.SetBool("isEquipped", true);
-        //    }
-        //}
+        anim.SetBool("isHolding", HasFood());
     }
 
     private void FixedUpdate()
@@ -83,13 +83,6 @@ public class PlayerMovement : MonoBehaviour
         if (horizontal != 0 && vertical != 0) body.velocity = body.velocity.normalized * runSpeed;
 
         gameObject.transform.position = new Vector3(gameObject.transform.position.x,gameObject.transform.position.y,gameObject.transform.position.y);
-        // (anim.GetBool("isEquipped")){
-        //  Vector2 lookDir = mousePos - body.position;
-        //  float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
-        //  body.rotation = angle;
-        //
-
-
     }
 
     // Pick up food from the food reservoir
@@ -121,6 +114,7 @@ public class PlayerMovement : MonoBehaviour
         // yipee! food in hands!
         //Debug.Log("picked up " + food.name);
         heldFood = food;
+        foodObject.GetComponent<SpriteRenderer>().sprite=heldFood.foodSprite;
         return true;
     }
 
@@ -151,7 +145,14 @@ public class PlayerMovement : MonoBehaviour
         if (!HasFood()) return null;
         Food temp = heldFood;
         heldFood = null;
+        foodObject.GetComponent<SpriteRenderer>().sprite=null;
         return temp;
+    }
+
+    //Method called by reservoir to spawn an empty GameObject with the Food Sprite in front of the player
+    public void SpawnFood()
+    {
+
     }
 
 }

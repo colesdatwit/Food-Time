@@ -1,4 +1,4 @@
-%YAML 1.1
+s%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &11400000
 MonoBehaviour:
@@ -19,8 +19,10 @@ MonoBehaviour:
   isCookable: 0
   isWorkable: 0
   isMixable: 0
-  mixableFoodsIds: []
+  mixableFoodsIds:
+  - CheesePortion
   bakeEvolveId: CookedPizza
   cookEvolveId: 
   workEvolveId: 
-  mixEvolveId: []
+  mixEvolveId:
+  - UncookedPizza

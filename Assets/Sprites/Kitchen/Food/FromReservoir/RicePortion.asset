@@ -18,9 +18,11 @@ MonoBehaviour:
   isBakeable: 0
   isCookable: 1
   isWorkable: 0
-  isMixable: 0
-  mixableFoodsIds: []
+  isMixable: 1
+  mixableFoodsIds:
+  - ChickenPortion
   bakeEvolveId: 
   cookEvolveId: CookedRice
   workEvolveId: 
-  mixEvolveId: []
+  mixEvolveId:
+  - UncookedChickenRice
