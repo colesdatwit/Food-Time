@@ -11,12 +11,15 @@ public class Counter : Interactable
 
     public GameObject foodObjectSpawner;
     GameObject foodObject;
-    bool firstInteract = true;
-
+    
     public bool isMixingCounter;
     public bool isWorkingCounter;
     public bool isOven;
     public bool isStove;
+    public bool hasReservoir = false;
+
+    bool firstInteract = true;
+
     protected override void OnInteract(GameObject player)
     {
         PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
@@ -24,6 +27,7 @@ public class Counter : Interactable
         {
             if (Input.GetKeyDown(KeyCode.E)) 
             {
+                if (hasReservoir) return;
                 // "E" on counter with food; player with heldFood
                 if (foodOnCounter != null && playerMovement.HasFood())
                 {
@@ -69,6 +73,15 @@ public class Counter : Interactable
         
 
         Debug.Log($"Placed {foodOnCounter.name} on the counter.");
+    }
+
+    public void RemoveFood()
+    {
+        if (foodOnCounter != null)
+        {
+            foodOnCounter = null;
+            foodObject.GetComponent<SpriteRenderer>().sprite = null;
+        }
     }
 
     // responsible for food removeal from counter
@@ -119,6 +132,8 @@ public class Counter : Interactable
                             player.heldFood = null;
                             player.foodObject.GetComponent<SpriteRenderer>().sprite=null;
                             Debug.Log($"Mixed and evolved into {foodOnCounter.name}");
+                            player.Mixed();
+                            foodObject.GetComponent<SpriteRenderer>().sprite = newFood.foodSprite;
                             return;
                         }
                     }
@@ -159,7 +174,7 @@ public class Counter : Interactable
 
     private void Bake()
     {
-        if (foodOnCounter != null && foodOnCounter.isCookable)
+        if (foodOnCounter != null && foodOnCounter.isBakeable)
         {
             // Example baking logic: get the bake evolution ID and fetch the new food object
             var newFood = foodDatabase.GetFoodById(foodOnCounter.bakeEvolveId);
