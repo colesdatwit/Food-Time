@@ -155,4 +155,14 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    public void Mixed()
+    {
+        if (heldFood != null)
+        {
+            heldFood = null;
+            foodObject.GetComponent<SpriteRenderer>().sprite = null;
+        }
+        
+    }
+
 }
