@@ -2,19 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Threading;
+
 public class QueueManager : MonoBehaviour
 {
     public GameObject npcPrefab; // Prefab of the NPC, assign 'customer' prefab here
     public Transform[] queuePositions; // Positions in the queue, assign in the Inspector
     public float speed; // Movement speed of NPCs
     public Text messageBox; // Reference to the UI Text element, assign in the Inspector
+    public FoodServingCounter servingCounter; // Reference to the ServingCounter
 
     private List<GameObject> npcQueue = new List<GameObject>(); // List to store NPCs in the queue
+    private List<string> orders = new List<string>() { "Rice", "Rice", "Rice" }; // Possible orders
 
     void Start()
     {
-        // Initialize the queue with NPCs
         for (int i = 0; i < queuePositions.Length; i++)
         {
             SpawnNPC(i);
@@ -24,17 +25,32 @@ public class QueueManager : MonoBehaviour
 
     void Update()
     {
-        // Move each NPC towards its target position
         for (int i = 0; i < npcQueue.Count; i++)
         {
             GameObject npc = npcQueue[i];
             Vector3 targetPosition = queuePositions[i].position;
             npc.transform.position = Vector3.MoveTowards(npc.transform.position, targetPosition, speed * Time.deltaTime);
 
-            // Check if the NPC is at the start of the line
             if (i == 0 && Vector3.Distance(npc.transform.position, targetPosition) < 0.1f)
             {
-                DisplayMessage("NPC has reached the start of the line!");
+                if (servingCounter != null) // Check if servingCounter is not null
+                {
+                    string order = GetRandomOrder();
+                    string preparedFood = servingCounter.GetFood().foodId;
+                    if (preparedFood.Equals(order))
+                    {
+                        DisplayMessage("NPC has reached the start of the line and got their " + order + "!");
+                        OnNPCLeave(); // Correct order, NPC leaves
+                    }
+                    else
+                    {
+                        DisplayMessage("Wrong order! I asked for " + order + ", not " + preparedFood + ".");
+                    }
+                }
+                else
+                {
+                    Debug.LogError("ServingCounter not initialized");
+                }
             }
         }
     }
@@ -43,12 +59,10 @@ public class QueueManager : MonoBehaviour
     {
         if (npcQueue.Count > 0)
         {
-            // Remove the first NPC from the queue
             GameObject leavingNPC = npcQueue[0];
             npcQueue.RemoveAt(0);
             Destroy(leavingNPC);
 
-            // Move the remaining NPCs up in the line
             for (int i = 0; i < npcQueue.Count; i++)
             {
                 GameObject npc = npcQueue[i];
@@ -58,8 +72,6 @@ public class QueueManager : MonoBehaviour
                     npcScript.SetTargetPosition(queuePositions[i].position);
                 }
             }
-
-            // Spawn a new NPC at the end of the line
             SpawnNPC(queuePositions.Length - 1);
         }
     }
@@ -94,5 +106,20 @@ public class QueueManager : MonoBehaviour
         {
             Debug.LogError("Message box is not assigned.");
         }
+    }
+
+    // Returns a random order from the list
+    private string GetRandomOrder()
+    {
+        return orders[Random.Range(0, orders.Count)];
+    }
+}
+
+public class ServingCounter
+{
+    public string GetFood()
+    {
+        // Return the name of the food that has been prepared, implement your logic here
+        return "Pizza"; // Example hardcoded return
     }
 }
