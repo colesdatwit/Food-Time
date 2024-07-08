@@ -19,8 +19,10 @@ MonoBehaviour:
   isCookable: 0
   isWorkable: 1
   isMixable: 0
-  mixableFoodsIds: []
+  mixableFoodsIds:
+  - WorkedChicken
   bakeEvolveId: 
   cookEvolveId: 
   workEvolveId: WorkedTomato
-  mixEvolveId: []
+  mixEvolveId:
+  - UncookedChickenTomato
