@@ -12,8 +12,15 @@ public class QueueManager : MonoBehaviour
     public FoodServingCounter servingCounter; // Reference to the ServingCounter
 
     private List<GameObject> npcQueue = new List<GameObject>(); // List to store NPCs in the queue
-    private List<string> orders = new List<string>() { "Rice", "Rice", "Rice" }; // Possible orders
-
+    private List<string> orders = new List<string>() { "RicePortion", "TomatoPortion", "FishPortion" }; // Possible orders
+    private string currentOrder = null; // Track the current order
+    Dictionary<string, string> Level1 = new Dictionary<string, string>()
+    {
+        {"I would like some Pizza please", "Pizza"},
+        {"I would like some Sushi please", "Sushi"},
+        {"I would like some Cooked Rice please", "CookedRice"},
+        {"I would like some Curry please", "Curry"}
+    };
     void Start()
     {
         for (int i = 0; i < queuePositions.Length; i++)
@@ -23,6 +30,7 @@ public class QueueManager : MonoBehaviour
         messageBox.gameObject.SetActive(false); // Hide the message box initially
     }
 
+    
     void Update()
     {
         for (int i = 0; i < npcQueue.Count; i++)
@@ -35,16 +43,28 @@ public class QueueManager : MonoBehaviour
             {
                 if (servingCounter != null) // Check if servingCounter is not null
                 {
-                    string order = GetRandomOrder();
-                    string preparedFood = servingCounter.GetFood().foodId;
-                    if (preparedFood.Equals(order))
+                    if (currentOrder == null) // Only set a new order if there is no current order
                     {
-                        DisplayMessage("NPC has reached the start of the line and got their " + order + "!");
-                        OnNPCLeave(); // Correct order, NPC leaves
+                        KeyValuePair<string, string> orderEntry = GetRandomOrder(1, "en");
+                        currentOrder = orderEntry.Value;
+                        DisplayMessage(orderEntry.Key);
                     }
-                    else
+
+                    Food preparedFood = servingCounter.GetFood(); // Assume GetFood returns a Food object
+                    if (preparedFood != null && preparedFood.foodId != null) // Check if preparedFood and foodId are not null
                     {
-                        DisplayMessage("Wrong order! I asked for " + order + ", not " + preparedFood + ".");
+                        if (preparedFood.foodId.Equals(currentOrder))
+                        {
+                            Debug.LogError(preparedFood.foodId + ' ' + currentOrder);
+                            DisplayMessage("NPC has reached the start of the line and got their " + currentOrder + "!");
+                            OnNPCLeave(); // Correct order, NPC leaves
+                            servingCounter.RemoveFood();
+                            currentOrder = null; // Reset the order as it's completed
+                        }
+                        else
+                        {
+                            DisplayMessage("Wrong order! I asked for " + currentOrder + ", not " + preparedFood.foodId + ".");
+                        }
                     }
                 }
                 else
@@ -109,9 +129,18 @@ public class QueueManager : MonoBehaviour
     }
 
     // Returns a random order from the list
-    private string GetRandomOrder()
+    private KeyValuePair<string, string> GetRandomOrder(int level, string lang)
     {
-        return orders[Random.Range(0, orders.Count)];
+        if (level == 1)
+        {
+            // Assuming 'lang' will be used in future to select different dictionaries based on language
+            List<KeyValuePair<string, string>> entries = new List<KeyValuePair<string, string>>(Level1);
+            int randomIndex = UnityEngine.Random.Range(0, entries.Count); // Use UnityEngine's Random for Unity projects
+            return entries[randomIndex];
+        }
+
+        // Default return value in case no matching level is found
+        return new KeyValuePair<string, string>("No order", "None");
     }
 }
 

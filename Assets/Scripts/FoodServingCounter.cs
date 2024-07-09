@@ -33,8 +33,6 @@ public class FoodServingCounter : Counter
                 Debug.Log($"buddy! get ur eyes checked! theres nothin on that dang counter");
             }
         }
-        queueManager.OnNPCLeave();
-        Debug.Log("OnNPCLeave");
     }
     
 }
