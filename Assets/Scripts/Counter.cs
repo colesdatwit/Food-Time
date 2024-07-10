@@ -9,6 +9,8 @@ public class Counter : Interactable
     public Food foodOnCounter;
     public FoodDatabase foodDatabase; // Reference to the Food Database
 
+    public GameObject SoundPlayer;
+
     public GameObject foodObjectSpawner;
     GameObject foodObject;
     
@@ -72,11 +74,12 @@ public class Counter : Interactable
         if (!isGarbage){
             foodObject.GetComponent<SpriteRenderer>().sprite=player.heldFood.foodSprite;
             foodOnCounter = player.PlaceFood();
-
+            SoundPlayer.GetComponent<SoundPlayer>().PlayPlaceFood();
             Debug.Log($"Placed {foodOnCounter.name} on the counter.");
         }
         else{
             Debug.Log($"Placed {player.heldFood.name} in the garbage.");
+            
             player.PlaceFood();
         }
         

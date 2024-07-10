@@ -2867,6 +2867,7 @@ MonoBehaviour:
     maxNormalAngle: 0
   foodOnCounter: {fileID: 0}
   foodDatabase: {fileID: 11400000, guid: d8eca14d4c970f949ac036fb32c70179, type: 2}
+  SoundPlayer: {fileID: 8358111809379119865, guid: b123fbcac18e6d84fb574850f95bbbd6, type: 3}
   foodObjectSpawner: {fileID: 4159796105410831336, guid: 54929d0a3df71694daebe4f794a806c7, type: 3}
   isMixingCounter: 0
   isWorkingCounter: 1
@@ -5685,6 +5686,7 @@ MonoBehaviour:
     maxNormalAngle: 0
   foodOnCounter: {fileID: 0}
   foodDatabase: {fileID: 11400000, guid: d8eca14d4c970f949ac036fb32c70179, type: 2}
+  SoundPlayer: {fileID: 8358111809379119865, guid: b123fbcac18e6d84fb574850f95bbbd6, type: 3}
   foodObjectSpawner: {fileID: 4159796105410831336, guid: 54929d0a3df71694daebe4f794a806c7, type: 3}
   isMixingCounter: 0
   isWorkingCounter: 0
@@ -9605,6 +9607,7 @@ MonoBehaviour:
     maxNormalAngle: 0
   foodOnCounter: {fileID: 0}
   foodDatabase: {fileID: 11400000, guid: d8eca14d4c970f949ac036fb32c70179, type: 2}
+  SoundPlayer: {fileID: 8358111809379119865, guid: b123fbcac18e6d84fb574850f95bbbd6, type: 3}
   foodObjectSpawner: {fileID: 4159796105410831336, guid: 54929d0a3df71694daebe4f794a806c7, type: 3}
   isMixingCounter: 1
   isWorkingCounter: 0
@@ -11615,6 +11618,7 @@ MonoBehaviour:
     maxNormalAngle: 0
   foodOnCounter: {fileID: 0}
   foodDatabase: {fileID: 0}
+  SoundPlayer: {fileID: 8358111809379119865, guid: b123fbcac18e6d84fb574850f95bbbd6, type: 3}
   foodObjectSpawner: {fileID: 4159796105410831336, guid: 54929d0a3df71694daebe4f794a806c7, type: 3}
   isMixingCounter: 0
   isWorkingCounter: 0
@@ -13574,6 +13578,7 @@ MonoBehaviour:
     maxNormalAngle: 0
   foodOnCounter: {fileID: 0}
   foodDatabase: {fileID: 11400000, guid: d8eca14d4c970f949ac036fb32c70179, type: 2}
+  SoundPlayer: {fileID: 8358111809379119865, guid: b123fbcac18e6d84fb574850f95bbbd6, type: 3}
   foodObjectSpawner: {fileID: 4159796105410831336, guid: 54929d0a3df71694daebe4f794a806c7, type: 3}
   isMixingCounter: 0
   isWorkingCounter: 0
