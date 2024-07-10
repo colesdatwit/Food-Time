@@ -16,6 +16,7 @@ public class Counter : Interactable
     public bool isWorkingCounter;
     public bool isOven;
     public bool isStove;
+    public bool isGarbage;
     public bool hasReservoir = false;
 
     bool firstInteract = true;
@@ -68,11 +69,19 @@ public class Counter : Interactable
             foodObject = Instantiate(foodObjectSpawner,new Vector3(transform.position.x,transform.position.y+(float)0.4,transform.position.z-1),Quaternion.identity);
             firstInteract=false;
         }
-        foodObject.GetComponent<SpriteRenderer>().sprite=player.heldFood.foodSprite;
-        foodOnCounter = player.PlaceFood();
+        if (!isGarbage){
+            foodObject.GetComponent<SpriteRenderer>().sprite=player.heldFood.foodSprite;
+            foodOnCounter = player.PlaceFood();
+
+            Debug.Log($"Placed {foodOnCounter.name} on the counter.");
+        }
+        else{
+            Debug.Log($"Placed {player.heldFood.name} in the garbage.");
+            player.PlaceFood();
+        }
         
 
-        Debug.Log($"Placed {foodOnCounter.name} on the counter.");
+        
     }
 
     public void RemoveFood()
@@ -109,6 +118,7 @@ public class Counter : Interactable
         if (isMixingCounter) return "Mix";
         if (isWorkingCounter) return "Work";
         if (isOven) return "Oven";
+        if (isGarbage) return "Garbage";
         return "Normal";
     }
 
@@ -208,6 +218,11 @@ public class Counter : Interactable
                 Debug.Log("CookEvolveId not found in the Food Database");
             }
         }
+    }
+
+    private void Garbage()
+    {
+        
     }
 
     private void Delete(Food food)

@@ -21,6 +21,6 @@ MonoBehaviour:
   isMixable: 0
   mixableFoodsIds: []
   bakeEvolveId: 
-  cookEvolveId: 
-  workEvolveId: CookedCurry
+  cookEvolveId: CookedCurry
+  workEvolveId: 
   mixEvolveId: []
