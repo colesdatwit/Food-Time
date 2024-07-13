@@ -14,6 +14,7 @@ public class Counter : Interactable
     public GameObject foodObjectSpawner;
     GameObject foodObject;
     
+    public bool isVertical;
     public bool isMixingCounter;
     public bool isWorkingCounter;
     public bool isOven;
@@ -23,9 +24,9 @@ public class Counter : Interactable
 
     bool firstInteract = true;
 
-    protected override void OnInteract(GameObject player)
+    protected override void OnInteract(GameObject playerCollider)
     {
-        PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+        PlayerMovement playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         if (playerMovement != null)
         {
             if (Input.GetKeyDown(KeyCode.E)) 
@@ -68,7 +69,10 @@ public class Counter : Interactable
     {
         if(firstInteract)
         {
-            foodObject = Instantiate(foodObjectSpawner,new Vector3(transform.position.x,transform.position.y+(float)0.4,transform.position.z-1),Quaternion.identity);
+            if(isVertical)
+                foodObject = Instantiate(foodObjectSpawner,new Vector3(transform.position.x,transform.position.y,transform.position.z-1),Quaternion.identity);
+            else
+                foodObject = Instantiate(foodObjectSpawner,new Vector3(transform.position.x,transform.position.y+(float)0.4,transform.position.z-1),Quaternion.identity);
             firstInteract=false;
         }
         if (!isGarbage){
@@ -82,9 +86,6 @@ public class Counter : Interactable
             
             player.PlaceFood();
         }
-        
-
-        
     }
 
     public void RemoveFood()
@@ -221,11 +222,6 @@ public class Counter : Interactable
                 Debug.Log("CookEvolveId not found in the Food Database");
             }
         }
-    }
-
-    private void Garbage()
-    {
-        
     }
 
     private void Delete(Food food)

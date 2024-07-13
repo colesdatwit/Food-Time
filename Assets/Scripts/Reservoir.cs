@@ -8,7 +8,7 @@ public class Reservoir : Interactable
 
     protected override void OnInteract(GameObject player)
     {
-        PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+        PlayerMovement playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         if (playerMovement != null)
         {
             if (Input.GetKeyDown(KeyCode.E))

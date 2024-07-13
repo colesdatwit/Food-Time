@@ -12,7 +12,7 @@ public class Interactable : Collidable
 
     protected override void OnCollided(GameObject collidedObject)
     {
-        if(collidedObject.CompareTag("Player"))
+        if(collidedObject.CompareTag("PlayerCollider"))
         {
             if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Escape))
             {
