@@ -14,7 +14,75 @@ public class QueueManager : MonoBehaviour
     private List<GameObject> npcQueue = new List<GameObject>(); // List to store NPCs in the queue
     private List<string> orders = new List<string>() { "RicePortion", "TomatoPortion", "FishPortion" }; // Possible orders
     private string currentOrder = null; // Track the current order
+    public int Score = 0;
+    public string language = "Spanish";
     Dictionary<string, string> Level1 = new Dictionary<string, string>()
+    {
+        {"I would like some Pizza please", "Pizza"},
+        {"I would like some Sushi please", "Sushi"},
+        {"I would like some Cooked Rice please", "CookedRice"},
+        {"I would like some Curry please", "Curry"}
+    };
+
+    Dictionary<string, string> Level2Spanish = new Dictionary<string, string>()
+    {
+        {"quisiera un poco de Pizza please", "Pizza"},
+        {"I would like some sushi por favor", "Sushi"},
+        {"quisiera un poco de Cooked Rice please", "CookedRice"},
+        {"I would like some Curry por favor", "Curry"}
+    };
+
+    Dictionary<string, string> Level3Spanish = new Dictionary<string, string>()
+    {
+        {"quisiera un poco de pizza por favor", "Pizza"},
+        {"quisiera un poco de sushi por favor", "Sushi"},
+        {"quisiera un poco de arroz cocido por favor", "CookedRice"},
+        {"quisiera un poco de curry por favor", "Curry"},
+        {"Tráeme un poco de pizza", "Pizza"},
+        {"¡Quiero curry!", "Curry"}
+    };
+
+    Dictionary<string, string> Level2Japaneese = new Dictionary<string, string>()
+    {
+        {"I would like some ピザ please", "Pizza"},
+        {"I would like some 寿司 please", "Sushi"},
+        {"I would like some 米飯 please", "CookedRice"},
+        {"I would like some カレー please", "Curry"}
+    };
+
+    Dictionary<string, string> Level3Japaneese = new Dictionary<string, string>()
+    {
+        {"ピザが欲しいです", "Pizza"},
+        {"お寿司を持ってきてください", "Sushi"},
+        {"炊き込みご飯が必要です", "CookedRice"},
+        {"カレーをください", "Curry"}
+    };
+
+    Dictionary<string, string> Level2Portuguese = new Dictionary<string, string>()
+    {
+        {"I would like some Pizza por favor", "Pizza"},
+        {"I would like some Sushi por favor", "Sushi"},
+        {"Por favor, posso comer Cooked Rice please", "CookedRice"},
+        {"Eu preciso de um pouco de Curry please", "Curry"}
+    };
+
+    Dictionary<string, string> Level3Portuguese = new Dictionary<string, string>()
+    {
+        {"Eu gostaria de um pouco de pizza, por favor", "Pizza"},
+        {"Por favor, posso comer sushi", "Sushi"},
+        {"Arroz cozido para mim", "CookedRice"},
+        {"Um pedido de curry, por favor", "Curry"}
+    };
+
+    Dictionary<string, string> Level2French = new Dictionary<string, string>()
+    {
+        {"I would like some Pizza please", "Pizza"},
+        {"I would like some Sushi please", "Sushi"},
+        {"I would like some Cooked Rice please", "CookedRice"},
+        {"I would like some Curry please", "Curry"}
+    };
+
+    Dictionary<string, string> Level3French = new Dictionary<string, string>()
     {
         {"I would like some Pizza please", "Pizza"},
         {"I would like some Sushi please", "Sushi"},
@@ -45,7 +113,7 @@ public class QueueManager : MonoBehaviour
                 {
                     if (currentOrder == null) // Only set a new order if there is no current order
                     {
-                        KeyValuePair<string, string> orderEntry = GetRandomOrder(1, "en");
+                        KeyValuePair<string, string> orderEntry = GetRandomOrder(Score, language);
                         currentOrder = orderEntry.Value;
                         DisplayMessage(orderEntry.Key);
                     }
@@ -93,6 +161,7 @@ public class QueueManager : MonoBehaviour
                 }
             }
             SpawnNPC(queuePositions.Length - 1);
+            Score++;
         }
     }
 
@@ -129,17 +198,63 @@ public class QueueManager : MonoBehaviour
     }
 
     // Returns a random order from the list
-    private KeyValuePair<string, string> GetRandomOrder(int level, string lang)
+    private KeyValuePair<string, string> GetRandomOrder(int Scores, string lang)
     {
-        if (level == 1)
-        {
-            // Assuming 'lang' will be used in future to select different dictionaries based on language
+        if (Scores < 3 || lang.Equals("English")){
             List<KeyValuePair<string, string>> entries = new List<KeyValuePair<string, string>>(Level1);
-            int randomIndex = UnityEngine.Random.Range(0, entries.Count); // Use UnityEngine's Random for Unity projects
-            return entries[randomIndex];
+            int randomIndex = UnityEngine.Random.Range(0, entries.Count);
+            return entries[randomIndex]; 
         }
-
-        // Default return value in case no matching level is found
+        else{
+            if(lang.Equals("Spanish"))
+            {
+                if(Scores < 6){
+                List<KeyValuePair<string, string>> entries = new List<KeyValuePair<string, string>>(Level2Spanish);
+                int randomIndex = UnityEngine.Random.Range(0, entries.Count);
+                return entries[randomIndex];
+                } else{
+                    List<KeyValuePair<string, string>> entries = new List<KeyValuePair<string, string>>(Level3Spanish);
+                    int randomIndex = UnityEngine.Random.Range(0, entries.Count);
+                    return entries[randomIndex];
+                }
+            }
+            else if(lang.Equals("French"))
+            {
+                if(Scores < 6){
+                List<KeyValuePair<string, string>> entries = new List<KeyValuePair<string, string>>(Level2French);
+                int randomIndex = UnityEngine.Random.Range(0, entries.Count);
+                return entries[randomIndex];
+                } else{
+                    List<KeyValuePair<string, string>> entries = new List<KeyValuePair<string, string>>(Level3French);
+                    int randomIndex = UnityEngine.Random.Range(0, entries.Count);
+                    return entries[randomIndex];
+                }
+            }
+            else if(lang.Equals("Portuguese"))
+            {
+                if(Scores < 6){
+                List<KeyValuePair<string, string>> entries = new List<KeyValuePair<string, string>>(Level2Portuguese);
+                int randomIndex = UnityEngine.Random.Range(0, entries.Count);
+                return entries[randomIndex];
+                } else{
+                    List<KeyValuePair<string, string>> entries = new List<KeyValuePair<string, string>>(Level3Portuguese);
+                    int randomIndex = UnityEngine.Random.Range(0, entries.Count);
+                    return entries[randomIndex];
+                }
+            }
+            else if(lang.Equals("Japanese"))
+            {
+                if(Scores < 6){
+                List<KeyValuePair<string, string>> entries = new List<KeyValuePair<string, string>>(Level2Japaneese);
+                int randomIndex = UnityEngine.Random.Range(0, entries.Count);
+                return entries[randomIndex];
+                } else{
+                    List<KeyValuePair<string, string>> entries = new List<KeyValuePair<string, string>>(Level3Japaneese);
+                    int randomIndex = UnityEngine.Random.Range(0, entries.Count);
+                    return entries[randomIndex];
+                }
+            }
+        }
         return new KeyValuePair<string, string>("No order", "None");
     }
 }

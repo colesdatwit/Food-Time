@@ -5,14 +5,16 @@ using UnityEngine;
 public class FoodServingCounter : Counter
 {
     public QueueManager queueManager; // Reference to the QueueManager script
-        protected override void OnInteract(GameObject player)
+    protected override void OnInteract(GameObject player)
     {
-        PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+        PlayerMovement playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         if (playerMovement != null)
         {
+            Debug.Log("b");
             if (Input.GetKeyDown(KeyCode.E)) 
             {
-                // "E" on counter with food; player with heldFood
+                // "E" on counter with food; player with heldFoodDebug.Log
+                Debug.Log("e");
                 if (foodOnCounter != null && playerMovement.HasFood())
                 {
                     Debug.Log($"Already {foodOnCounter.name} on the counter! theres no dang space!");
