@@ -8,6 +8,7 @@ TagManager:
   - foodObject
   - SoundPlayer
   - PlayerCollider
+  - PauseMenu
   layers:
   - Default
   - TransparentFX
