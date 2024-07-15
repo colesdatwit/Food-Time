@@ -65,7 +65,7 @@ public class Counter : Interactable
     }
 
     // responsible for adding food to counter
-    private void PlaceFood(PlayerMovement player)
+    protected void PlaceFood(PlayerMovement player)
     {
         if(firstInteract)
         {
@@ -98,7 +98,7 @@ public class Counter : Interactable
     }
 
     // responsible for food removeal from counter
-    private void PickUpFood(PlayerMovement player)
+    protected void PickUpFood(PlayerMovement player)
     {
         if (player.PickUpFood(foodOnCounter))
         {
