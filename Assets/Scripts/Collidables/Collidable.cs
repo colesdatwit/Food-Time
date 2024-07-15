@@ -21,6 +21,7 @@ public abstract class Collidable : MonoBehaviour
         {
             OnCollided(o.gameObject);
         }
+
     }
 
     protected abstract void OnCollided(GameObject collidedObject);

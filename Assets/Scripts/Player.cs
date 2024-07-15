@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject foodObjectSpawner;
     public GameObject foodObject;
+    public GameObject collider;
 
     public float runSpeed = 5.0f;
     public Camera cam;
@@ -29,52 +30,59 @@ public class PlayerMovement : MonoBehaviour
 
     void Update ()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
-        vertical = Input.GetAxisRaw("Vertical");
+        if(!GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>().getIsPaused())
+        {
+            horizontal = Input.GetAxisRaw("Horizontal");
+            vertical = Input.GetAxisRaw("Vertical");
 
-        if (horizontal == 0 && vertical == 0)
-        {     //checks to see if player is not moving IDLE
-            anim.SetBool("isIdle", true);
-            anim.SetBool("isWalking", false);
-            anim.SetBool("isWalkingUp", false);
-            anim.SetBool("isWalkingDown", false);
-        }
-        if (horizontal > 0)
-        {       //checks to see if player is WALKING RIGHT
-            gameObject.transform.localScale = new Vector3(-5, 5, 5);
-            anim.SetBool("isIdle", false);
-            anim.SetBool("isWalking", true);
-            anim.SetBool("isWalkingUp", false);
-            anim.SetBool("isWalkingDown", false);
-            foodObject.transform.position = new Vector3(gameObject.transform.position.x+(float)0.3,gameObject.transform.position.y-(float)0.45,gameObject.transform.position.z+1);
-        }
-        if (horizontal < 0)
-        {       //checks to see if player is WALKING LEFT
-            gameObject.transform.localScale = new Vector3(5, 5, 5);
-            anim.SetBool("isIdle", false);
-            anim.SetBool("isWalking", true);
-            anim.SetBool("isWalkingUp", false);
-            anim.SetBool("isWalkingDown", false);
-            foodObject.transform.position = new Vector3(gameObject.transform.position.x-(float)0.3,gameObject.transform.position.y-(float)0.45,gameObject.transform.position.z+1);
-        }
-        if (vertical > 0 && horizontal == 0)
-        {      //checks if player not moving horizontally and MOVING UP 
-            anim.SetBool("isIdle", false);
-            anim.SetBool("isWalking", false);
-            anim.SetBool("isWalkingUp", true);
-            anim.SetBool("isWalkingDown", false);
-            foodObject.transform.position = new Vector3(gameObject.transform.position.x,gameObject.transform.position.y+(float)0.5,gameObject.transform.position.z+1);
-        }
-        if (vertical < 0 && horizontal == 0)
-        {      //checks if player not moving horizontally and MOVING DOWN
-            anim.SetBool("isIdle", false);
-            anim.SetBool("isWalking", false);
-            anim.SetBool("isWalkingUp", false);
-            anim.SetBool("isWalkingDown", true);
-            foodObject.transform.position = new Vector3(gameObject.transform.position.x,gameObject.transform.position.y-(float)0.55,gameObject.transform.position.z-1);
-        }
+            if (horizontal == 0 && vertical == 0)
+            {     //checks to see if player is not moving IDLE
+                anim.SetBool("isIdle", true);
+                anim.SetBool("isWalking", false);
+                anim.SetBool("isWalkingUp", false);
+                anim.SetBool("isWalkingDown", false);
+            }
+            if (horizontal > 0)
+            {       //checks to see if player is WALKING RIGHT
+                gameObject.transform.localScale = new Vector3(-5, 5, 5);
+                anim.SetBool("isIdle", false);
+                anim.SetBool("isWalking", true);
+                anim.SetBool("isWalkingUp", false);
+                anim.SetBool("isWalkingDown", false);
+                foodObject.transform.position = new Vector3(gameObject.transform.position.x+(float)0.3,gameObject.transform.position.y-(float)0.45,gameObject.transform.position.z+1);
+                collider.transform.position = new Vector3(gameObject.transform.position.x+(float)0.35,gameObject.transform.position.y-(float)0.2,gameObject.transform.position.z);
+            }
+            if (horizontal < 0)
+            {       //checks to see if player is WALKING LEFT
+                gameObject.transform.localScale = new Vector3(5, 5, 5);
+                anim.SetBool("isIdle", false);
+                anim.SetBool("isWalking", true);
+                anim.SetBool("isWalkingUp", false);
+                anim.SetBool("isWalkingDown", false);
+                foodObject.transform.position = new Vector3(gameObject.transform.position.x-(float)0.3,gameObject.transform.position.y-(float)0.45,gameObject.transform.position.z+1);
+                collider.transform.position = new Vector3(gameObject.transform.position.x-(float)0.35,gameObject.transform.position.y-(float)0.2,gameObject.transform.position.z);
+            }
+            if (vertical > 0 && horizontal == 0)
+            {      //checks if player not moving horizontally and MOVING UP 
+                anim.SetBool("isIdle", false);
+                anim.SetBool("isWalking", false);
+                anim.SetBool("isWalkingUp", true);
+                anim.SetBool("isWalkingDown", false);
+                foodObject.transform.position = new Vector3(gameObject.transform.position.x,gameObject.transform.position.y+(float)0.5,gameObject.transform.position.z+1);
+                collider.transform.position = new Vector3(gameObject.transform.position.x,gameObject.transform.position.y+(float)0.25,gameObject.transform.position.z);
+            }
+            if (vertical < 0 && horizontal == 0)
+            {      //checks if player not moving horizontally and MOVING DOWN
+                anim.SetBool("isIdle", false);
+                anim.SetBool("isWalking", false);
+                anim.SetBool("isWalkingUp", false);
+                anim.SetBool("isWalkingDown", true);
+                foodObject.transform.position = new Vector3(gameObject.transform.position.x,gameObject.transform.position.y-(float)0.55,gameObject.transform.position.z-1);
+                collider.transform.position = new Vector3(gameObject.transform.position.x,gameObject.transform.position.y-(float)0.25,gameObject.transform.position.z);
+            }
 
-        anim.SetBool("isHolding", HasFood());
+            anim.SetBool("isHolding", HasFood());
+        }
     }
 
     private void FixedUpdate()
@@ -147,12 +155,6 @@ public class PlayerMovement : MonoBehaviour
         heldFood = null;
         foodObject.GetComponent<SpriteRenderer>().sprite=null;
         return temp;
-    }
-
-    //Method called by reservoir to spawn an empty GameObject with the Food Sprite in front of the player
-    public void SpawnFood()
-    {
-
     }
 
     public void Mixed()
