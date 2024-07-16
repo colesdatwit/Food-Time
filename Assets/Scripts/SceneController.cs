@@ -35,6 +35,7 @@ public class SceneController : MonoBehaviour
     public void LoadMainMenu()
     {
         SceneManager.LoadSceneAsync("Main Menu");
+        GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>().overrideResumeGame();
     }
 
     public void Exit() 
