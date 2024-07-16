@@ -135,22 +135,25 @@ public class Counter : Interactable
             Food heldFood = player.getFood();
             if (heldFood != null)
             {
-                foreach (string mixableId in foodOnCounter.mixableFoodsIds)
+                for (int i = 0; i < foodOnCounter.mixableFoodsIds.Count; i++)
                 {
-                    if (heldFood.foodId == mixableId)
+                    if (heldFood.foodId == foodOnCounter.mixableFoodsIds[i])
                     {
-                        var newFood = foodDatabase.GetFoodById(foodOnCounter.mixEvolveId[0]);
-                        if (newFood != null)
+                        if (heldFood.foodId == foodOnCounter.mixableFoodsIds[i])
                         {
-                            foodOnCounter = newFood;
-                            foodObject.GetComponent<SpriteRenderer>().sprite = newFood.foodSprite;
-                            player.heldFood = null;
-                            player.foodObject.GetComponent<SpriteRenderer>().sprite=null;
-                            SoundPlayer.GetComponent<SoundPlayer>().PlayMixFood();
-                            Debug.Log($"Mixed and evolved into {foodOnCounter.name}");
-                            player.Mixed();
-                            foodObject.GetComponent<SpriteRenderer>().sprite = newFood.foodSprite;
-                            return;
+                            var newFood = foodDatabase.GetFoodById(foodOnCounter.mixEvolveId[i]);
+                            if (newFood != null)
+                            {
+                                foodOnCounter = newFood;
+                                foodObject.GetComponent<SpriteRenderer>().sprite = newFood.foodSprite;
+                                player.heldFood = null;
+                                player.foodObject.GetComponent<SpriteRenderer>().sprite = null;
+                                SoundPlayer.GetComponent<SoundPlayer>().PlayMixFood();
+                                Debug.Log($"Mixed and evolved into {foodOnCounter.name}");
+                                player.Mixed();
+                                foodObject.GetComponent<SpriteRenderer>().sprite = newFood.foodSprite;
+                                return;
+                            }
                         }
                     }
                 }

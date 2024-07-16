@@ -22,5 +22,5 @@ MonoBehaviour:
   mixableFoodsIds: []
   bakeEvolveId: 
   cookEvolveId: CookedChicken
-  workEvolveId: WorkedChicken
+  workEvolveId: 
   mixEvolveId: []

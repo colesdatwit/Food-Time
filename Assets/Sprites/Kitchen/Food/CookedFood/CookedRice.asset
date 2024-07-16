@@ -21,8 +21,10 @@ MonoBehaviour:
   isMixable: 1
   mixableFoodsIds:
   - SeaweedPortion
+  - CookedWorkedChicken
   bakeEvolveId: 
   cookEvolveId: 
   workEvolveId: 
   mixEvolveId:
   - RiceSeaweed
+  - ChickenRice
