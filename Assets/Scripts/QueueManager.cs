@@ -18,76 +18,76 @@ public class QueueManager : MonoBehaviour
     public string language = "Spanish";
     Dictionary<string, string> Level1 = new Dictionary<string, string>()
     {
-        {"I would like some Pizza please", "Pizza"},
+        {"I would like some Pizza please", "BakedPizza"},
         {"I would like some Sushi please", "Sushi"},
         {"I would like some Cooked Rice please", "CookedRice"},
-        {"I would like some Curry please", "Curry"}
+        {"I would like some Curry please", "CookedCurry"}
     };
 
     Dictionary<string, string> Level2Spanish = new Dictionary<string, string>()
     {
-        {"quisiera un poco de Pizza please", "Pizza"},
+        {"Me da una Pizza please", "BakedPizza"},
         {"I would like some sushi por favor", "Sushi"},
-        {"quisiera un poco de Cooked Rice please", "CookedRice"},
-        {"I would like some Curry por favor", "Curry"}
+        {"Me da un Cooked Rice please", "CookedRice"},
+        {"I would like some Curry por favor", "CookedCurry"}
     };
 
     Dictionary<string, string> Level3Spanish = new Dictionary<string, string>()
     {
-        {"quisiera un poco de pizza por favor", "Pizza"},
-        {"quisiera un poco de sushi por favor", "Sushi"},
-        {"quisiera un poco de arroz cocido por favor", "CookedRice"},
-        {"quisiera un poco de curry por favor", "Curry"},
-        {"Tráeme un poco de pizza", "Pizza"},
-        {"¡Quiero curry!", "Curry"}
+        {"Me da una pizza por favor", "BakedPizza"},
+        {"Me da un sushi por favor", "Sushi"},
+        {"Me da un arroz cocido por favor", "CookedRice"},
+        {"Me da un curry por favor", "CookedCurry"},
+        {"Tráeme un poco de pizza por favor", "BakedPizza"},
+        {"¡Quiero curry por favor!", "Curry"}
     };
 
     Dictionary<string, string> Level2Japaneese = new Dictionary<string, string>()
     {
-        {"I would like some ピザ please", "Pizza"},
-        {"I would like some 寿司 please", "Sushi"},
-        {"I would like some 米飯 please", "CookedRice"},
-        {"I would like some カレー please", "Curry"}
+        {"piza onegaishimasu", "BakedPizza"},
+        {"sushi onegaishimasu", "Sushi"},
+        {"I would like some gohan please", "CookedRice"},
+        {"I would like some karee please", "CookedCurry"}
     };
 
     Dictionary<string, string> Level3Japaneese = new Dictionary<string, string>()
     {
-        {"ピザが欲しいです", "Pizza"},
-        {"お寿司を持ってきてください", "Sushi"},
-        {"炊き込みご飯が必要です", "CookedRice"},
-        {"カレーをください", "Curry"}
+        {"piza onegaishimasu", "BakedPizza"},
+        {"sushi onegaishimasu", "Sushi"},
+        {"gohan onegaishimasu", "CookedRice"},
+        {"karee onegaishimasu", "CookedCurry"}
     };
 
     Dictionary<string, string> Level2Portuguese = new Dictionary<string, string>()
     {
-        {"I would like some Pizza por favor", "Pizza"},
+        {"I would like some Pizza por favor", "BakedPizza"},
         {"I would like some Sushi por favor", "Sushi"},
         {"Por favor, posso comer Cooked Rice please", "CookedRice"},
-        {"Eu preciso de um pouco de Curry please", "Curry"}
+        {"Eu preciso de um pouco de Curry please", "CookedCurry"}
     };
 
     Dictionary<string, string> Level3Portuguese = new Dictionary<string, string>()
     {
-        {"Eu gostaria de um pouco de pizza, por favor", "Pizza"},
+        {"Eu gostaria de um pouco de pizza, por favor", "BakedPizza"},
         {"Por favor, posso comer sushi", "Sushi"},
         {"Arroz cozido para mim", "CookedRice"},
-        {"Um pedido de curry, por favor", "Curry"}
+        {"Um pedido de curry, por favor", "CookedCurry"}
     };
 
     Dictionary<string, string> Level2French = new Dictionary<string, string>()
     {
-        {"I would like some Pizza please", "Pizza"},
+        {"I would like some Pizza please", "BakedPizza"},
         {"I would like some Sushi please", "Sushi"},
         {"I would like some Cooked Rice please", "CookedRice"},
-        {"I would like some Curry please", "Curry"}
+        {"I would like some Curry please", "CookedCurry"}
     };
 
     Dictionary<string, string> Level3French = new Dictionary<string, string>()
     {
-        {"I would like some Pizza please", "Pizza"},
+        {"I would like some Pizza please", "BakedPizza"},
         {"I would like some Sushi please", "Sushi"},
         {"I would like some Cooked Rice please", "CookedRice"},
-        {"I would like some Curry please", "Curry"}
+        {"I would like some Curry please", "CookedCurry"}
     };
     void Start()
     {

@@ -82,8 +82,8 @@ public class Counter : Interactable
             Debug.Log($"Placed {foodOnCounter.name} on the counter.");
         }
         else{
+            SoundPlayer.GetComponent<SoundPlayer>().PlayTrashFood();
             Debug.Log($"Placed {player.heldFood.name} in the garbage.");
-            
             player.PlaceFood();
         }
     }
@@ -102,6 +102,7 @@ public class Counter : Interactable
     {
         if (player.PickUpFood(foodOnCounter))
         {
+            SoundPlayer.GetComponent<SoundPlayer>().PlayPickUpFood();
             Debug.Log($"Picked up {foodOnCounter.name} from the counter.");
             foodOnCounter = null;
             foodObject.GetComponent<SpriteRenderer>().sprite=null;
@@ -145,6 +146,7 @@ public class Counter : Interactable
                             foodObject.GetComponent<SpriteRenderer>().sprite = newFood.foodSprite;
                             player.heldFood = null;
                             player.foodObject.GetComponent<SpriteRenderer>().sprite=null;
+                            SoundPlayer.GetComponent<SoundPlayer>().PlayMixFood();
                             Debug.Log($"Mixed and evolved into {foodOnCounter.name}");
                             player.Mixed();
                             foodObject.GetComponent<SpriteRenderer>().sprite = newFood.foodSprite;
@@ -177,6 +179,7 @@ public class Counter : Interactable
             {
                 foodOnCounter = newFood;
                 foodObject.GetComponent<SpriteRenderer>().sprite = newFood.foodSprite;
+                SoundPlayer.GetComponent<SoundPlayer>().PlayWorkFood();
                 Debug.Log($"Worked and evolved into {foodOnCounter.name}");
             }
             else
@@ -196,6 +199,7 @@ public class Counter : Interactable
             {
                 foodOnCounter = newFood;
                 foodObject.GetComponent<SpriteRenderer>().sprite = newFood.foodSprite;
+                SoundPlayer.GetComponent<SoundPlayer>().PlayCookFood();
                 Debug.Log($"Baked and evolved into {foodOnCounter.name}");
             }
             else
@@ -215,6 +219,7 @@ public class Counter : Interactable
             {
                 foodOnCounter = newFood;
                 foodObject.GetComponent<SpriteRenderer>().sprite = newFood.foodSprite;
+                SoundPlayer.GetComponent<SoundPlayer>().PlayCookFood();
                 Debug.Log($"Cooked and evolved into {foodOnCounter.name}");
             }
             else

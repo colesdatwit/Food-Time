@@ -141,5 +141,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7606306e201df634da16ceb6fbc9c972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placeFoodSound: {fileID: 8300000, guid: c446f69cb48131448a0be4738e21783c, type: 3}
+  pickUpFoodSound: {fileID: 8300000, guid: 7161fd78bf3f65c45adc7fa31e8a702e, type: 3}
+  placeFoodSound: {fileID: 8300000, guid: ecea3cfe61a162447a61082854ece751, type: 3}
+  workFoodSound: {fileID: 8300000, guid: 92604031678049b438342547a6274cd8, type: 3}
+  mixFoodSound: {fileID: 8300000, guid: c40013de79354084b88f1664cafae1f7, type: 3}
+  cookFoodSound: {fileID: 8300000, guid: ee04d26770abfc941bd43268ffa2c2cf, type: 3}
+  trashFoodSound: {fileID: 8300000, guid: f6211014f3382a64396db697c144c4cf, type: 3}
   volume: 0.1
