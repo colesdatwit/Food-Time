@@ -7,8 +7,6 @@ public class SceneController : MonoBehaviour
 {
     public AudioClip bgrMusic;
 
-    public AudioClip placeFoodSound;
-
     public float volume;
 
     AudioSource SoundPlayer;
@@ -35,7 +33,7 @@ public class SceneController : MonoBehaviour
     public void LoadMainMenu()
     {
         SceneManager.LoadSceneAsync("Main Menu");
-        GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>().overrideResumeGame();
+        //GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>().overrideResumeGame();
     }
 
     public void Exit() 
@@ -43,10 +41,6 @@ public class SceneController : MonoBehaviour
         Application.Quit();
     }
 
-    public void PlayPlaceFood()
-    {
-        AudioSource.PlayClipAtPoint(placeFoodSound, transform.position, 0.5f);
-    }
     public void PlayBackgroundMusic()
     {
         SoundPlayer.volume=volume;
