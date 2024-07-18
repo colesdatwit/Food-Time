@@ -78,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
                 anim.SetBool("isWalkingUp", false);
                 anim.SetBool("isWalkingDown", true);
                 foodObject.transform.position = new Vector3(gameObject.transform.position.x,gameObject.transform.position.y-(float)0.55,gameObject.transform.position.z-1);
-                collider.transform.position = new Vector3(gameObject.transform.position.x,gameObject.transform.position.y-(float)0.25,gameObject.transform.position.z);
+                collider.transform.position = new Vector3(gameObject.transform.position.x,gameObject.transform.position.y-(float)0.7,gameObject.transform.position.z);
             }
 
             anim.SetBool("isHolding", HasFood());

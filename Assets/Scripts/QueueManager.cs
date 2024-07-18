@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class QueueManager : MonoBehaviour
 {
     public GameObject npcPrefab; // Prefab of the NPC, assign 'customer' prefab here
+    public GameObject SoundPlayer;
     public Transform[] queuePositions; // Positions in the queue, assign in the Inspector
     public float speed; // Movement speed of NPCs
     public Text messageBox; // Reference to the UI Text element, assign in the Inspector
@@ -39,7 +40,7 @@ public class QueueManager : MonoBehaviour
         {"Me da un arroz cocido por favor", "CookedRice"},
         {"Me da un curry por favor", "CookedCurry"},
         {"Tráeme un poco de pizza por favor", "BakedPizza"},
-        {"¡Quiero curry por favor!", "Curry"}
+        {"¡Quiero curry por favor!", "CookedCurry"}
     };
 
     Dictionary<string, string> Level2Japaneese = new Dictionary<string, string>()
@@ -124,13 +125,15 @@ public class QueueManager : MonoBehaviour
                         if (preparedFood.foodId.Equals(currentOrder))
                         {
                             Debug.LogError(preparedFood.foodId + ' ' + currentOrder);
-                            DisplayMessage("NPC has reached the start of the line and got their " + currentOrder + "!");
+                            //DisplayMessage("NPC has reached the start of the line and got their " + currentOrder + "!");
+                            SoundPlayer.GetComponent<SoundPlayer>().PlayCorrect();
                             OnNPCLeave(); // Correct order, NPC leaves
                             servingCounter.RemoveFood();
                             currentOrder = null; // Reset the order as it's completed
                         }
                         else
                         {
+                            //SoundPlayer.GetComponent<SoundPlayer>().PlayWrong();  //too loud don't like
                             DisplayMessage("Wrong order! I asked for " + currentOrder + ", not " + preparedFood.foodId + ".");
                         }
                     }

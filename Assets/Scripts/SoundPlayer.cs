@@ -10,6 +10,8 @@ public class SoundPlayer : MonoBehaviour
         public AudioClip mixFoodSound;
         public AudioClip cookFoodSound;
         public AudioClip trashFoodSound;
+        public AudioClip correct;
+        public AudioClip wrong;
 
         public float volume;
 
@@ -55,5 +57,15 @@ public class SoundPlayer : MonoBehaviour
     public void PlayTrashFood()
     {
         AudioSource.PlayClipAtPoint(trashFoodSound, transform.position, volume*2);
+    }
+
+    public void PlayCorrect()
+    {
+        AudioSource.PlayClipAtPoint(correct, transform.position, volume);
+    }
+
+    public void PlayWrong()
+    {
+        AudioSource.PlayClipAtPoint(wrong, transform.position, volume/2);
     }
 }
