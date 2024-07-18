@@ -7,12 +7,14 @@ public class QueueManager : MonoBehaviour
 {
     public GameObject npcPrefab; // Prefab of the NPC, assign 'customer' prefab here
     public Transform[] queuePositions; // Positions in the queue, assign in the Inspector
+    public Transform exitPoint; // Reference to the exit point
     public float speed; // Movement speed of NPCs
     public Text messageBox; // Reference to the UI Text element, assign in the Inspector
+    public Text ScoreBox; // Reference to the UI Text element, assign in the Inspector
+
     public FoodServingCounter servingCounter; // Reference to the ServingCounter
 
     private List<GameObject> npcQueue = new List<GameObject>(); // List to store NPCs in the queue
-    private List<string> orders = new List<string>() { "RicePortion", "TomatoPortion", "FishPortion" }; // Possible orders
     private string currentOrder = null; // Track the current order
     public int Score = 0;
     public string language = "Spanish";
@@ -76,18 +78,18 @@ public class QueueManager : MonoBehaviour
 
     Dictionary<string, string> Level2French = new Dictionary<string, string>()
     {
-        {"I would like some Pizza please", "BakedPizza"},
-        {"I would like some Sushi please", "Sushi"},
-        {"I would like some Cooked Rice please", "CookedRice"},
-        {"I would like some Curry please", "CookedCurry"}
+        {"je voudrais une Pizza please", "BakedPizza"},
+        {"I would like some Sushi S'il te plaît", "Sushi"},
+        {"I would like some Riz cuit please", "CookedRice"},
+        {"je voudrais une Curry please", "CookedCurry"}
     };
 
     Dictionary<string, string> Level3French = new Dictionary<string, string>()
     {
-        {"I would like some Pizza please", "BakedPizza"},
-        {"I would like some Sushi please", "Sushi"},
-        {"I would like some Cooked Rice please", "CookedRice"},
-        {"I would like some Curry please", "CookedCurry"}
+        {"Apportez-moi de la pizza", "BakedPizza"},
+        {"Comment sont tes sushis ? J'aimerais un peu", "Sushi"},
+        {"Donne-moi du riz", "CookedRice"},
+        {"Fais-moi du curry", "CookedCurry"}
     };
     void Start()
     {
@@ -123,7 +125,7 @@ public class QueueManager : MonoBehaviour
                     {
                         if (preparedFood.foodId.Equals(currentOrder))
                         {
-                            Debug.LogError(preparedFood.foodId + ' ' + currentOrder);
+                            Debug.Log(preparedFood.foodId + ' ' + currentOrder);
                             DisplayMessage("NPC has reached the start of the line and got their " + currentOrder + "!");
                             OnNPCLeave(); // Correct order, NPC leaves
                             servingCounter.RemoveFood();
@@ -143,27 +145,39 @@ public class QueueManager : MonoBehaviour
         }
     }
 
-    public void OnNPCLeave()
+public void OnNPCLeave()
+{
+    if (npcQueue.Count > 0)
     {
-        if (npcQueue.Count > 0)
-        {
-            GameObject leavingNPC = npcQueue[0];
-            npcQueue.RemoveAt(0);
-            Destroy(leavingNPC);
+        GameObject leavingNPC = npcQueue[0];
+        npcQueue.RemoveAt(0);
+        StartCoroutine(MoveToExitAndDespawn(leavingNPC)); // Start the coroutine
 
-            for (int i = 0; i < npcQueue.Count; i++)
+        for (int i = 0; i < npcQueue.Count; i++)
+        {
+            GameObject npc = npcQueue[i];
+            Customer npcScript = npc.GetComponent<Customer>();
+            if (npcScript != null)
             {
-                GameObject npc = npcQueue[i];
-                Customer npcScript = npc.GetComponent<Customer>();
-                if (npcScript != null)
-                {
-                    npcScript.SetTargetPosition(queuePositions[i].position);
-                }
+                npcScript.SetTargetPosition(queuePositions[i].position);
             }
-            SpawnNPC(queuePositions.Length - 1);
-            Score++;
         }
+        SpawnNPC(queuePositions.Length - 1);
+        Score++;
+        DisplayScore();
     }
+}
+
+private IEnumerator MoveToExitAndDespawn(GameObject npc)
+{
+    float speed = 5f; // Adjust speed as needed
+    while (Vector3.Distance(npc.transform.position, exitPoint.position) > 0.1f)
+    {
+        npc.transform.position = Vector3.MoveTowards(npc.transform.position, exitPoint.position, speed * Time.deltaTime);
+        yield return null;
+    }
+    Destroy(npc);
+}
 
     private void SpawnNPC(int positionIndex)
     {
@@ -190,6 +204,18 @@ public class QueueManager : MonoBehaviour
         {
             messageBox.text = message;
             messageBox.gameObject.SetActive(true);
+        }
+        else
+        {
+            Debug.LogError("Message box is not assigned.");
+        }
+    }
+
+    private void DisplayScore(){
+        if (ScoreBox != null)
+        {
+            ScoreBox.text = ("Score:" + Score);
+            ScoreBox.gameObject.SetActive(true);
         }
         else
         {
