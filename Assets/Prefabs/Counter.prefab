@@ -160,7 +160,9 @@ MonoBehaviour:
   foodOnCounter: {fileID: 0}
   foodDatabase: {fileID: 0}
   SoundPlayer: {fileID: 8358111809379119865, guid: b123fbcac18e6d84fb574850f95bbbd6, type: 3}
+  Pop: {fileID: 1635491395902325082, guid: ab787485e7645fb4abc5bd44257fd1b8, type: 3}
   foodObjectSpawner: {fileID: 4159796105410831336, guid: 54929d0a3df71694daebe4f794a806c7, type: 3}
+  isVertical: 0
   isMixingCounter: 0
   isWorkingCounter: 0
   isOven: 0

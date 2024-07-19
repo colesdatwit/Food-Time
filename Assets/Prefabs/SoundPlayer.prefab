@@ -147,6 +147,6 @@ MonoBehaviour:
   mixFoodSound: {fileID: 8300000, guid: c40013de79354084b88f1664cafae1f7, type: 3}
   cookFoodSound: {fileID: 8300000, guid: ee04d26770abfc941bd43268ffa2c2cf, type: 3}
   trashFoodSound: {fileID: 8300000, guid: f6211014f3382a64396db697c144c4cf, type: 3}
-  correct: {fileID: 8300000, guid: 7c338819df137f34f9a44d8e2efb563b, type: 3}
+  correct: {fileID: 8300000, guid: c863fa90652412442853956527353a53, type: 3}
   wrong: {fileID: 8300000, guid: c42d57a95ee4b8e4eacdb16f99d435f0, type: 3}
   volume: 0.1

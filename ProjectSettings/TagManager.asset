@@ -9,6 +9,7 @@ TagManager:
   - SoundPlayer
   - PlayerCollider
   - PauseMenu
+  - QueueManager
   layers:
   - Default
   - TransparentFX

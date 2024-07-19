@@ -10,6 +10,7 @@ public class Counter : Interactable
     public FoodDatabase foodDatabase; // Reference to the Food Database
 
     public GameObject SoundPlayer;
+    public GameObject Pop;
 
     public GameObject foodObjectSpawner;
     GameObject foodObject;
@@ -144,6 +145,7 @@ public class Counter : Interactable
                             var newFood = foodDatabase.GetFoodById(foodOnCounter.mixEvolveId[i]);
                             if (newFood != null)
                             {
+                                Pop.GetComponent<CounterPop>().playWorkAnim(transform.position);
                                 foodOnCounter = newFood;
                                 foodObject.GetComponent<SpriteRenderer>().sprite = newFood.foodSprite;
                                 player.heldFood = null;
@@ -180,6 +182,7 @@ public class Counter : Interactable
             var newFood = foodDatabase.GetFoodById(foodOnCounter.workEvolveId);
             if (newFood != null)
             {
+                Pop.GetComponent<CounterPop>().playWorkAnim(transform.position);
                 foodOnCounter = newFood;
                 foodObject.GetComponent<SpriteRenderer>().sprite = newFood.foodSprite;
                 SoundPlayer.GetComponent<SoundPlayer>().PlayWorkFood();
@@ -200,6 +203,7 @@ public class Counter : Interactable
             var newFood = foodDatabase.GetFoodById(foodOnCounter.bakeEvolveId);
             if (newFood != null)
             {
+                Pop.GetComponent<CounterPop>().playCookAnim(transform.position);
                 foodOnCounter = newFood;
                 foodObject.GetComponent<SpriteRenderer>().sprite = newFood.foodSprite;
                 SoundPlayer.GetComponent<SoundPlayer>().PlayCookFood();
@@ -220,6 +224,7 @@ public class Counter : Interactable
             var newFood = foodDatabase.GetFoodById(foodOnCounter.cookEvolveId);
             if (newFood != null)
             {
+                Pop.GetComponent<CounterPop>().playCookAnim(transform.position);
                 foodOnCounter = newFood;
                 foodObject.GetComponent<SpriteRenderer>().sprite = newFood.foodSprite;
                 SoundPlayer.GetComponent<SoundPlayer>().PlayCookFood();

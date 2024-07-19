@@ -12,8 +12,15 @@ public class QueueManager : MonoBehaviour
     public Text messageBox; // Reference to the UI Text element, assign in the Inspector
     public FoodServingCounter servingCounter; // Reference to the ServingCounter
 
-    private List<GameObject> npcQueue = new List<GameObject>(); // List to store NPCs in the queue
-    private List<string> orders = new List<string>() { "RicePortion", "TomatoPortion", "FishPortion" }; // Possible orders
+    public GameObject EntryDoor;
+    public GameObject ExitDoor;
+
+    private int spawnTimer = 0;
+    private int spawnTime = 3600;
+    private int customerCount = 0;
+    private bool[] positionFilled;
+    //private List<GameObject> npcQueue = new List<GameObject>(); // List to store NPCs in the queue
+    //private List<string> orders = new List<string>() { "RicePortion", "TomatoPortion", "FishPortion" }; // Possible orders
     private string currentOrder = null; // Track the current order
     public int Score = 0;
     public string language = "Spanish";
@@ -92,9 +99,21 @@ public class QueueManager : MonoBehaviour
     };
     void Start()
     {
+        //for (int i = 0; i < queuePositions.Length; i++)
+        //{
+        //    SpawnNPC(i);
+        //}
+        positionFilled = new bool[queuePositions.Length];
         for (int i = 0; i < queuePositions.Length; i++)
         {
-            SpawnNPC(i);
+            if(i==0)
+            {
+                positionFilled[i]=true;
+            }
+            else
+            {
+                positionFilled[i]=false;
+            }
         }
         messageBox.gameObject.SetActive(false); // Hide the message box initially
     }
@@ -102,82 +121,94 @@ public class QueueManager : MonoBehaviour
     
     void Update()
     {
-        for (int i = 0; i < npcQueue.Count; i++)
+        if(customerCount < 7)
         {
-            GameObject npc = npcQueue[i];
-            Vector3 targetPosition = queuePositions[i].position;
-            npc.transform.position = Vector3.MoveTowards(npc.transform.position, targetPosition, speed * Time.deltaTime);
-
-            if (i == 0 && Vector3.Distance(npc.transform.position, targetPosition) < 0.1f)
+            if(spawnTimer == spawnTime)
             {
-                if (servingCounter != null) // Check if servingCounter is not null
-                {
-                    if (currentOrder == null) // Only set a new order if there is no current order
-                    {
-                        KeyValuePair<string, string> orderEntry = GetRandomOrder(Score, language);
-                        currentOrder = orderEntry.Value;
-                        DisplayMessage(orderEntry.Key);
-                    }
+                SpawnNPC();
+                customerCount++;
+                spawnTimer = 0;
+            }
+            spawnTimer++;
+        }
+    }
 
-                    Food preparedFood = servingCounter.GetFood(); // Assume GetFood returns a Food object
-                    if (preparedFood != null && preparedFood.foodId != null) // Check if preparedFood and foodId are not null
+    public Vector3 FindNextTargetPosition(Vector3 pos)
+    {
+        for (int i = 1; i < queuePositions.Length; i++)
+        {
+            if(pos==queuePositions[i].position)
+            {
+                if(positionFilled[i-1]) //pos==queuePositions[queuePositions.Length-2].position||
+                {
+                    if (pos==queuePositions[1].position)
                     {
-                        if (preparedFood.foodId.Equals(currentOrder))
+                        if (servingCounter != null) // Check if servingCounter is not null
                         {
-                            Debug.LogError(preparedFood.foodId + ' ' + currentOrder);
-                            //DisplayMessage("NPC has reached the start of the line and got their " + currentOrder + "!");
-                            SoundPlayer.GetComponent<SoundPlayer>().PlayCorrect();
-                            OnNPCLeave(); // Correct order, NPC leaves
-                            servingCounter.RemoveFood();
-                            currentOrder = null; // Reset the order as it's completed
+                            if (currentOrder == null) // Only set a new order if there is no current order
+                            {
+                                KeyValuePair<string, string> orderEntry = GetRandomOrder(Score, language);
+                                currentOrder = orderEntry.Value;
+                                DisplayMessage(orderEntry.Key);
+                            }
+        
+                            Food preparedFood = servingCounter.GetFood(); // Assume GetFood returns a Food object
+                            if (preparedFood != null && preparedFood.foodId != null) // Check if preparedFood and foodId are not null
+                            {
+                                if (preparedFood.foodId.Equals(currentOrder))
+                                {
+                                    Debug.Log(preparedFood.foodId + ' ' + currentOrder);
+                                    //DisplayMessage("NPC has reached the start of the line and got their " + currentOrder + "!");
+                                    SoundPlayer.GetComponent<SoundPlayer>().PlayCorrect();
+                                    DisplayMessage("");
+                                    positionFilled[0]=false;
+                                    servingCounter.RemoveServedFood();
+                                    currentOrder = null; // Reset the order as it's completed
+                                }
+                                else
+                                {
+                                    SoundPlayer.GetComponent<SoundPlayer>().PlayCorrect(); 
+                                    DisplayMessage("Wrong order! I asked for " + currentOrder + ", not " + preparedFood.foodId + ".");
+                                    servingCounter.RemoveServedFood();
+                                }
+                            }
                         }
                         else
                         {
-                            //SoundPlayer.GetComponent<SoundPlayer>().PlayWrong();  //too loud don't like
-                            DisplayMessage("Wrong order! I asked for " + currentOrder + ", not " + preparedFood.foodId + ".");
+                            Debug.LogError("ServingCounter not initialized");
                         }
                     }
+                    return pos;
                 }
                 else
                 {
-                    Debug.LogError("ServingCounter not initialized");
+                    positionFilled[i]=false;
+                    positionFilled[i-1]=true;
+                    return queuePositions[i-1].position;
                 }
             }
         }
+        return new Vector3(-1,-1,-1);
     }
 
-    public void OnNPCLeave()
+    public void openExitDoor()
     {
-        if (npcQueue.Count > 0)
-        {
-            GameObject leavingNPC = npcQueue[0];
-            npcQueue.RemoveAt(0);
-            Destroy(leavingNPC);
-
-            for (int i = 0; i < npcQueue.Count; i++)
-            {
-                GameObject npc = npcQueue[i];
-                Customer npcScript = npc.GetComponent<Customer>();
-                if (npcScript != null)
-                {
-                    npcScript.SetTargetPosition(queuePositions[i].position);
-                }
-            }
-            SpawnNPC(queuePositions.Length - 1);
-            Score++;
-        }
+        customerCount--;
+        ExitDoor.GetComponent<Door>().DoorOpen();
     }
 
-    private void SpawnNPC(int positionIndex)
+    private void SpawnNPC()
     {
-        if (positionIndex >= 0 && positionIndex < queuePositions.Length)
+        if (!positionFilled[queuePositions.Length-1])
         {
-            GameObject newNPC = Instantiate(npcPrefab, queuePositions[positionIndex].position, Quaternion.identity);
+            EntryDoor.GetComponent<Door>().DoorOpen();
+            GameObject newNPC = Instantiate(npcPrefab, queuePositions[queuePositions.Length-1].position, Quaternion.identity);
             Customer npcScript = newNPC.GetComponent<Customer>();
             if (npcScript != null)
             {
-                npcScript.SetTargetPosition(queuePositions[positionIndex].position);
-                npcQueue.Add(newNPC);
+                positionFilled[queuePositions.Length-1]=true;
+                npcScript.qm = GameObject.FindFirstObjectByType<QueueManager>();
+                npcScript.SetTargetPosition(queuePositions[queuePositions.Length-1].position);
             }
             else
             {

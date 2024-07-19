@@ -5,8 +5,12 @@ using UnityEngine;
 public class FoodServingCounter : Counter
 {
     public QueueManager queueManager; // Reference to the QueueManager script
+
+    Animator anim;
+
     protected override void OnInteract(GameObject player)
     {
+        anim = GetComponent<Animator>();
         PlayerMovement playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         if (playerMovement != null)
         {
@@ -23,7 +27,8 @@ public class FoodServingCounter : Counter
                 // "E" on counter with no food; player with heldFood
                 if (foodOnCounter == null && playerMovement.HasFood())
                 { 
-                    PlaceFood(playerMovement);
+                    anim.Play("ServingCounterRing");
+                    ServeFood(playerMovement);
                     return;
                 }
                 // "E" on counter with food; player with no heldFood
@@ -36,5 +41,20 @@ public class FoodServingCounter : Counter
             }
         }
     }
-    
+
+    protected void ServeFood(PlayerMovement player)
+    {
+        //foodObject.GetComponent<SpriteRenderer>().sprite=player.heldFood.foodSprite;
+        foodOnCounter = player.PlaceFood();
+        //SoundPlayer.GetComponent<SoundPlayer>().PlayPlaceFood();
+        Debug.Log($"Placed {foodOnCounter.name} on the counter.");
+    }
+
+    public void RemoveServedFood()
+    {
+        if (foodOnCounter != null)
+        {
+            foodOnCounter = null;
+        }
+    }
 }
