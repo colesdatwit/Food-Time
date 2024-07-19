@@ -194,6 +194,7 @@ public class QueueManager : MonoBehaviour
     public void openExitDoor()
     {
         customerCount--;
+        Score++;
         ExitDoor.GetComponent<Door>().DoorOpen();
     }
 
