@@ -10,7 +10,7 @@ public class QueueManager : MonoBehaviour
     public GameObject SoundPlayer;
     public Transform[] queuePositions; // Positions in the queue, assign in the Inspector
     public float speed; // Movement speed of NPCs
-    public Text messageBox; // Reference to the UI Text element, assign in the Inspector
+    public TMP_Text messageBox; // Reference to the UI Text element, assign in the Inspector
     public TMP_Text ScoreBox; // Reference to the UI Text element, assign in the Inspector
     public FoodServingCounter servingCounter; // Reference to the ServingCounter
 
