@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class QueueManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class QueueManager : MonoBehaviour
     public Transform[] queuePositions; // Positions in the queue, assign in the Inspector
     public float speed; // Movement speed of NPCs
     public Text messageBox; // Reference to the UI Text element, assign in the Inspector
+    public TMP_Text ScoreBox; // Reference to the UI Text element, assign in the Inspector
     public FoodServingCounter servingCounter; // Reference to the ServingCounter
 
     public GameObject EntryDoor;
@@ -20,7 +22,6 @@ public class QueueManager : MonoBehaviour
     private int customerCount = 0;
     private bool[] positionFilled;
     //private List<GameObject> npcQueue = new List<GameObject>(); // List to store NPCs in the queue
-    //private List<string> orders = new List<string>() { "RicePortion", "TomatoPortion", "FishPortion" }; // Possible orders
     private string currentOrder = null; // Track the current order
     public int Score = 0;
     public string language = "Spanish";
@@ -84,18 +85,18 @@ public class QueueManager : MonoBehaviour
 
     Dictionary<string, string> Level2French = new Dictionary<string, string>()
     {
-        {"I would like some Pizza please", "BakedPizza"},
-        {"I would like some Sushi please", "Sushi"},
-        {"I would like some Cooked Rice please", "CookedRice"},
-        {"I would like some Curry please", "CookedCurry"}
+        {"je voudrais une Pizza please", "BakedPizza"},
+        {"I would like some Sushi S'il te plaît", "Sushi"},
+        {"I would like some Riz cuit please", "CookedRice"},
+        {"je voudrais une Curry please", "CookedCurry"}
     };
 
     Dictionary<string, string> Level3French = new Dictionary<string, string>()
     {
-        {"I would like some Pizza please", "BakedPizza"},
-        {"I would like some Sushi please", "Sushi"},
-        {"I would like some Cooked Rice please", "CookedRice"},
-        {"I would like some Curry please", "CookedCurry"}
+        {"Apportez-moi de la pizza", "BakedPizza"},
+        {"Comment sont tes sushis ? J'aimerais un peu", "Sushi"},
+        {"Donne-moi du riz", "CookedRice"},
+        {"Fais-moi du curry", "CookedCurry"}
     };
     void Start()
     {
@@ -103,6 +104,7 @@ public class QueueManager : MonoBehaviour
         //{
         //    SpawnNPC(i);
         //}
+
         positionFilled = new bool[queuePositions.Length];
         for (int i = 0; i < queuePositions.Length; i++)
         {
@@ -195,6 +197,7 @@ public class QueueManager : MonoBehaviour
     {
         customerCount--;
         Score++;
+        DisplayScore();
         ExitDoor.GetComponent<Door>().DoorOpen();
     }
 
@@ -225,6 +228,18 @@ public class QueueManager : MonoBehaviour
         {
             messageBox.text = message;
             messageBox.gameObject.SetActive(true);
+        }
+        else
+        {
+            Debug.LogError("Message box is not assigned.");
+        }
+    }
+
+    private void DisplayScore(){
+        if (ScoreBox != null)
+        {
+            ScoreBox.text = ("Score:" + Score);
+            //ScoreBox.gameObject.SetActive(true);
         }
         else
         {
@@ -291,14 +306,5 @@ public class QueueManager : MonoBehaviour
             }
         }
         return new KeyValuePair<string, string>("No order", "None");
-    }
-}
-
-public class ServingCounter
-{
-    public string GetFood()
-    {
-        // Return the name of the food that has been prepared, implement your logic here
-        return "Pizza"; // Example hardcoded return
     }
 }
