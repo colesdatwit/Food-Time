@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
                 anim.SetBool("isWalkingUp", true);
                 anim.SetBool("isWalkingDown", false);
                 foodObject.transform.position = new Vector3(gameObject.transform.position.x,gameObject.transform.position.y+(float)0.5,gameObject.transform.position.z+1);
-                collider.transform.position = new Vector3(gameObject.transform.position.x,gameObject.transform.position.y+(float)0.25,gameObject.transform.position.z);
+                collider.transform.position = new Vector3(gameObject.transform.position.x,gameObject.transform.position.y+(float)0.3,gameObject.transform.position.z);
             }
             if (vertical < 0 && horizontal == 0)
             {      //checks if player not moving horizontally and MOVING DOWN
