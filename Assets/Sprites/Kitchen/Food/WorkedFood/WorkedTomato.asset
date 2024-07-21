@@ -21,8 +21,10 @@ MonoBehaviour:
   isMixable: 1
   mixableFoodsIds:
   - WorkedDough
+  - ChickenRice
   bakeEvolveId: 
   cookEvolveId: 
   workEvolveId: 
   mixEvolveId:
   - DoughSauce
+  - UncookedCurry
