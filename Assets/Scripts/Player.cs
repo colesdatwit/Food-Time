@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject foodObjectSpawner;
     public GameObject foodObject;
+    public GameObject pauseMenu;
     public GameObject collider;
 
     public float runSpeed = 5.0f;
@@ -26,11 +27,12 @@ public class PlayerMovement : MonoBehaviour
         body = GetComponent<Rigidbody2D>(); 
         anim = GetComponent<Animator>();
         foodObject = Instantiate(foodObjectSpawner,transform.position,Quaternion.identity);
+        pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
     }
 
     void Update ()
     {
-        if(!GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>().getIsPaused())
+        if(!pauseMenu.GetComponent<PauseMenu>().getIsPaused())
         {
             horizontal = Input.GetAxisRaw("Horizontal");
             vertical = Input.GetAxisRaw("Vertical");

@@ -8,6 +8,7 @@ public class QueueManager : MonoBehaviour
 {
     public GameObject npcPrefab; // Prefab of the NPC, assign 'customer' prefab here
     public GameObject SoundPlayer;
+    public GameObject pauseMenu;
     public Transform[] queuePositions; // Positions in the queue, assign in the Inspector
     public float speed; // Movement speed of NPCs
     public TMP_Text messageBox; // Reference to the UI Text element, assign in the Inspector
@@ -100,11 +101,6 @@ public class QueueManager : MonoBehaviour
     };
     void Start()
     {
-        //for (int i = 0; i < queuePositions.Length; i++)
-        //{
-        //    SpawnNPC(i);
-        //}
-
         positionFilled = new bool[queuePositions.Length];
         for (int i = 0; i < queuePositions.Length; i++)
         {
@@ -118,12 +114,13 @@ public class QueueManager : MonoBehaviour
             }
         }
         messageBox.gameObject.SetActive(false); // Hide the message box initially
+        pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
     }
 
     
     void Update()
     {
-        if(customerCount < 7)
+        if(customerCount < 7 && !pauseMenu.GetComponent<PauseMenu>().getIsPaused())
         {
             if(spawnTimer == spawnTime)
             {
@@ -238,7 +235,9 @@ public class QueueManager : MonoBehaviour
     private void DisplayScore(){
         if (ScoreBox != null)
         {
-            ScoreBox.text = ("Score:" + Score);
+            if(Score>99)
+                Score=99;
+            ScoreBox.text = ("Score:" + string.Format("{0:00}", Score));
             //ScoreBox.gameObject.SetActive(true);
         }
         else
