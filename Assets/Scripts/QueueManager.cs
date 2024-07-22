@@ -20,6 +20,7 @@ public class QueueManager : MonoBehaviour
 
     private int spawnTimer = 0;
     public int spawnTime;
+    private int newSpawnTime;
     private int customerCount = 0;
     private bool[] positionFilled;
     //private List<GameObject> npcQueue = new List<GameObject>(); // List to store NPCs in the queue
@@ -106,6 +107,7 @@ public class QueueManager : MonoBehaviour
         messageBox.gameObject.SetActive(false); // Hide the message box initially
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
         soundPlayer = GameObject.FindGameObjectWithTag("SoundPlayer");
+        newSpawnTime=spawnTime;
     }
 
     
@@ -120,6 +122,7 @@ public class QueueManager : MonoBehaviour
                     EntryDoor.GetComponent<Door>().knocking=false;
                     SpawnNPC();
                     customerCount++;
+                    spawnTime=newSpawnTime;
                     spawnTimer = 0;
                 }
                 else
@@ -134,9 +137,11 @@ public class QueueManager : MonoBehaviour
                     }
                     else
                     {
+                        newSpawnTime=newSpawnTime-5;
                         soundPlayer.GetComponent<SoundPlayer>().PlayKnock();
                         EntryDoor.GetComponent<Door>().knocking=true;
                         EntryDoor.GetComponent<Door>().DoorKnock();
+                        spawnTime=newSpawnTime;
                         spawnTimer = 0;
                     }
                 }
@@ -205,6 +210,10 @@ public class QueueManager : MonoBehaviour
 
     public void openExitDoor()
     {
+        if(customerCount<3)
+            newSpawnTime=newSpawnTime-50;
+        else if(customerCount<5)
+            newSpawnTime=newSpawnTime-25;
         customerCount--;
         Score++;
         DisplayScore();
