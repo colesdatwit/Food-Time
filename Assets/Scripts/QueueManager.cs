@@ -131,7 +131,7 @@ public class QueueManager : MonoBehaviour
                     {
                         //Game Over
                         soundPlayer.GetComponent<SoundPlayer>().StopPlayingMusic();
-                        pauseMenu.GetComponent<PauseMenu>().pause();
+                        pauseMenu.GetComponent<PauseMenu>().GameOver();
                         DisplayMessage("GAME OVER");
                         soundPlayer.GetComponent<SoundPlayer>().PlayWrong();
                     }
