@@ -86,18 +86,18 @@ public class QueueManager : MonoBehaviour
 
     Dictionary<string, string> Level2French = new Dictionary<string, string>()
     {
-        {"je voudrais une Pizza please", "BakedPizza"},
-        {"I would like some Sushi S'il te plaît", "Sushi"},
-        {"I would like some Riz cuit please", "CookedRice"},
-        {"je voudrais une Curry please", "CookedCurry"}
+        {"Je voudrais une Pizza please", "BakedPizza"},
+        {"I would like some Sushi s'il vous plait", "Sushi"},
+        {"I would like some Riz s'il vous plait", "CookedRice"},
+        {"Je voudrais une Curry please", "CookedCurry"}
     };
 
     Dictionary<string, string> Level3French = new Dictionary<string, string>()
     {
-        {"Apportez-moi de la pizza", "BakedPizza"},
-        {"Comment sont tes sushis ? J'aimerais un peu", "Sushi"},
-        {"Donne-moi du riz", "CookedRice"},
-        {"Fais-moi du curry", "CookedCurry"}
+        {"Je voudrais une pizza s'il vous plait", "BakedPizza"},
+        {"Je voudrais une Sushi s'il vous plait", "Sushi"},
+        {"Je voudrais un Riz s'il vous plait", "CookedRice"},
+        {"Je voudrais un Curry s'il vous plait", "CookedCurry"}
     };
     void Start()
     {
