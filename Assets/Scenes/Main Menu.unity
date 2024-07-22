@@ -246,8 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgrMusic: {fileID: 8300000, guid: 51cd9f3d79c10494cb9977fe48382d64, type: 3}
-  placeFoodSound: {fileID: 0}
-  volume: 0.1
+  volume: 0.01
 --- !u!4 &382907350
 Transform:
   m_ObjectHideFlags: 0
@@ -762,8 +761,8 @@ Canvas:
   m_GameObject: {fileID: 1266707497}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 186645128}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1

@@ -10,6 +10,7 @@ TagManager:
   - PlayerCollider
   - PauseMenu
   - QueueManager
+  - LanguageHelp
   layers:
   - Default
   - TransparentFX

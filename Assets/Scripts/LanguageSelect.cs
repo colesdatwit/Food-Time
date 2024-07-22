@@ -9,10 +9,17 @@ public class LanguageSelect : MonoBehaviour
     public Button frenchButton;
     public Canvas languageSelectCanvas; // Reference to the Canvas that holds the language selection
 
+    public Sprite spanishHelp;
+    public Sprite japaneseHelp;
+    public Sprite frenchHelp;
+
     private QueueManager queueManager;
+    private GameObject pauseMenu;
 
     private void Start()
     {
+        pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
+        pauseMenu.GetComponent<PauseMenu>().pause();
         // Find the QueueManager instance in the scene
         queueManager = FindObjectOfType<QueueManager>();
 
@@ -28,6 +35,7 @@ public class LanguageSelect : MonoBehaviour
         if (queueManager != null)
         {
             queueManager.language = "Spanish";
+            GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>().helpSprite = spanishHelp;
             Debug.Log("Language set to Spanish");
             DeactivateLanguageSelect();
         }
@@ -38,6 +46,7 @@ public class LanguageSelect : MonoBehaviour
         if (queueManager != null)
         {
             queueManager.language = "Portuguese";
+            //GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>().helpSprite = portugeseHelp;
             Debug.Log("Language set to Portuguese");
             DeactivateLanguageSelect();
         }
@@ -48,6 +57,7 @@ public class LanguageSelect : MonoBehaviour
         if (queueManager != null)
         {
             queueManager.language = "Japanese";
+            GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>().helpSprite = japaneseHelp;
             Debug.Log("Language set to Japanese");
             DeactivateLanguageSelect();
         }
@@ -58,6 +68,7 @@ public class LanguageSelect : MonoBehaviour
         if (queueManager != null)
         {
             queueManager.language = "French";
+            GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>().helpSprite = frenchHelp;
             Debug.Log("Language set to French");
             DeactivateLanguageSelect();
         }
@@ -67,6 +78,7 @@ public class LanguageSelect : MonoBehaviour
     {
         if (languageSelectCanvas != null)
         {
+            pauseMenu.GetComponent<PauseMenu>().resumeGame();
             languageSelectCanvas.gameObject.SetActive(false);
         }
         else

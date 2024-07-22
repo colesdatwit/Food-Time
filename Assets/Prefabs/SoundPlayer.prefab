@@ -149,4 +149,6 @@ MonoBehaviour:
   trashFoodSound: {fileID: 8300000, guid: f6211014f3382a64396db697c144c4cf, type: 3}
   correct: {fileID: 8300000, guid: c863fa90652412442853956527353a53, type: 3}
   wrong: {fileID: 8300000, guid: c42d57a95ee4b8e4eacdb16f99d435f0, type: 3}
+  knock: {fileID: 8300000, guid: f60a8f3737dea6449a66e92c13bd16be, type: 3}
+  bgrMusic: {fileID: 8300000, guid: 51cd9f3d79c10494cb9977fe48382d64, type: 3}
   volume: 0.1

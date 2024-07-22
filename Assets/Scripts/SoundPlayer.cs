@@ -12,8 +12,11 @@ public class SoundPlayer : MonoBehaviour
         public AudioClip trashFoodSound;
         public AudioClip correct;
         public AudioClip wrong;
+        public AudioClip knock;
+        public AudioClip bgrMusic;
 
         public float volume;
+        public float musicVolume;
 
         AudioSource SoundController;
 
@@ -22,6 +25,7 @@ public class SoundPlayer : MonoBehaviour
     {
         SoundController = GetComponent<AudioSource>();
         SoundController.volume = volume;
+        PlayBackgroundMusic();
     }
 
     // Update is called once per frame
@@ -66,6 +70,24 @@ public class SoundPlayer : MonoBehaviour
 
     public void PlayWrong()
     {
-        AudioSource.PlayClipAtPoint(wrong, transform.position, volume/2);
+        AudioSource.PlayClipAtPoint(wrong, transform.position, volume);
+    }
+
+    public void PlayKnock()
+    {
+        AudioSource.PlayClipAtPoint(knock, transform.position, volume*3);
+    }
+
+    public void PlayBackgroundMusic()
+    {
+        SoundController.volume=musicVolume;
+        SoundController.clip = bgrMusic;
+        SoundController.loop = true;
+        SoundController.Play();
+    }
+
+    public void StopPlayingMusic()
+    {
+        SoundController.Stop();
     }
 }

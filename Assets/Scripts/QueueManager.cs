@@ -7,7 +7,7 @@ using TMPro;
 public class QueueManager : MonoBehaviour
 {
     public GameObject npcPrefab; // Prefab of the NPC, assign 'customer' prefab here
-    public GameObject SoundPlayer;
+    public GameObject soundPlayer;
     public GameObject pauseMenu;
     public Transform[] queuePositions; // Positions in the queue, assign in the Inspector
     public float speed; // Movement speed of NPCs
@@ -19,7 +19,7 @@ public class QueueManager : MonoBehaviour
     public GameObject ExitDoor;
 
     private int spawnTimer = 0;
-    private int spawnTime = 3600;
+    public int spawnTime;
     private int customerCount = 0;
     private bool[] positionFilled;
     //private List<GameObject> npcQueue = new List<GameObject>(); // List to store NPCs in the queue
@@ -102,31 +102,44 @@ public class QueueManager : MonoBehaviour
     void Start()
     {
         positionFilled = new bool[queuePositions.Length];
-        for (int i = 0; i < queuePositions.Length; i++)
-        {
-            if(i==0)
-            {
-                positionFilled[i]=true;
-            }
-            else
-            {
-                positionFilled[i]=false;
-            }
-        }
+        positionFilled[0]=true;
         messageBox.gameObject.SetActive(false); // Hide the message box initially
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
+        soundPlayer = GameObject.FindGameObjectWithTag("SoundPlayer");
     }
 
     
-    void Update()
+    void FixedUpdate()
     {
-        if(customerCount < 7 && !pauseMenu.GetComponent<PauseMenu>().getIsPaused())
+        if(!pauseMenu.GetComponent<PauseMenu>().getIsPaused())
         {
             if(spawnTimer == spawnTime)
             {
-                SpawnNPC();
-                customerCount++;
-                spawnTimer = 0;
+                if(customerCount < 7)
+                {
+                    EntryDoor.GetComponent<Door>().knocking=false;
+                    SpawnNPC();
+                    customerCount++;
+                    spawnTimer = 0;
+                }
+                else
+                {
+                    if(EntryDoor.GetComponent<Door>().knocking)
+                    {
+                        //Game Over
+                        soundPlayer.GetComponent<SoundPlayer>().StopPlayingMusic();
+                        pauseMenu.GetComponent<PauseMenu>().pause();
+                        DisplayMessage("GAME OVER");
+                        soundPlayer.GetComponent<SoundPlayer>().PlayWrong();
+                    }
+                    else
+                    {
+                        soundPlayer.GetComponent<SoundPlayer>().PlayKnock();
+                        EntryDoor.GetComponent<Door>().knocking=true;
+                        EntryDoor.GetComponent<Door>().DoorKnock();
+                        spawnTimer = 0;
+                    }
+                }
             }
             spawnTimer++;
         }
@@ -158,7 +171,7 @@ public class QueueManager : MonoBehaviour
                                 {
                                     Debug.Log(preparedFood.foodId + ' ' + currentOrder);
                                     //DisplayMessage("NPC has reached the start of the line and got their " + currentOrder + "!");
-                                    SoundPlayer.GetComponent<SoundPlayer>().PlayCorrect();
+                                    soundPlayer.GetComponent<SoundPlayer>().PlayCorrect();
                                     DisplayMessage("");
                                     positionFilled[0]=false;
                                     servingCounter.RemoveServedFood();
@@ -166,7 +179,7 @@ public class QueueManager : MonoBehaviour
                                 }
                                 else
                                 {
-                                    SoundPlayer.GetComponent<SoundPlayer>().PlayCorrect(); 
+                                    soundPlayer.GetComponent<SoundPlayer>().PlayCorrect(); 
                                     DisplayMessage("Wrong order! I asked for " + currentOrder + ", not " + preparedFood.foodId + ".");
                                     servingCounter.RemoveServedFood();
                                 }

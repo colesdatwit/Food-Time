@@ -8,6 +8,8 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenu;
     public static bool isPaused;
 
+    public Sprite helpSprite;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +42,13 @@ public class PauseMenu : MonoBehaviour
     public void pauseGame()
     {
         pauseMenu.SetActive(true);
+        GameObject.FindGameObjectWithTag("LanguageHelp").GetComponent<SpriteRenderer>().sprite=helpSprite;
+        Time.timeScale = 0f;
+        isPaused = true;
+    }
+
+    public void pause()
+    {
         Time.timeScale = 0f;
         isPaused = true;
     }

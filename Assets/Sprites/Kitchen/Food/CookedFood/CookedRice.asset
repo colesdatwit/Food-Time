@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CookedRice
   m_EditorClassIdentifier: 
   foodId: CookedRice
-  foodSprite: {fileID: -1854453953, guid: 641d98294292f7f4c97e45f055a45038, type: 3}
+  foodSprite: {fileID: 21300000, guid: f88607ee5b39f254f9d870ed6a049e35, type: 3}
   value: 0
   isBakeable: 0
   isCookable: 0
