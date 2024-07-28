@@ -27,78 +27,82 @@ public class QueueManager : MonoBehaviour
     private string currentOrder = null; // Track the current order
     public int Score = 0;
     public string language = "Spanish";
+
+    //Orderable Food Names
+    static string pizza = "Pizza";
+    static string sushi = "Sushi";
+    static string cookedRice = "Cooked Rice";
+    static string curry = "Curry";
     Dictionary<string, string> Level1 = new Dictionary<string, string>()
     {
-        {"I would like some Pizza please", "BakedPizza"},
-        {"I would like some Sushi please", "Sushi"},
-        {"I would like some Cooked Rice please", "CookedRice"},
-        {"I would like some Curry please", "CookedCurry"}
+        {"I would like some Pizza please", pizza},
+        {"I would like some Sushi please", sushi},
+        {"I would like some Cooked Rice please", cookedRice},
+        {"I would like some Curry please", curry}
     };
 
     Dictionary<string, string> Level2Spanish = new Dictionary<string, string>()
     {
-        {"Me da una Pizza please", "BakedPizza"},
-        {"I would like some sushi por favor", "Sushi"},
-        {"Me da un Cooked Rice please", "CookedRice"},
-        {"I would like some Curry por favor", "CookedCurry"}
+        {"Me da una Pizza please", pizza},
+        {"I would like some sushi por favor", sushi},
+        {"Me da un Cooked Rice please", cookedRice},
+        {"I would like some Curry por favor", curry}
     };
 
     Dictionary<string, string> Level3Spanish = new Dictionary<string, string>()
     {
-        {"Me da una pizza por favor", "BakedPizza"},
-        {"Me da un sushi por favor", "Sushi"},
-        {"Me da un arroz cocido por favor", "CookedRice"},
-        {"Me da un curry por favor", "CookedCurry"},
-        {"Tráeme un poco de pizza por favor", "BakedPizza"},
-        {"¡Quiero curry por favor!", "CookedCurry"}
+        {"Me da una pizza por favor", pizza},
+        {"Me da un sushi por favor", sushi},
+        {"Me da un arroz cocido por favor", cookedRice},
+        {"Me da un curry por favor", curry},
     };
 
     Dictionary<string, string> Level2Japaneese = new Dictionary<string, string>()
     {
-        {"piza onegaishimasu", "BakedPizza"},
-        {"sushi onegaishimasu", "Sushi"},
-        {"I would like some gohan please", "CookedRice"},
-        {"I would like some karee please", "CookedCurry"}
+        {"piza onegaishimasu", pizza},
+        {"sushi onegaishimasu", sushi},
+        {"I would like some gohan please", cookedRice},
+        {"I would like some karee please", curry}
     };
 
     Dictionary<string, string> Level3Japaneese = new Dictionary<string, string>()
     {
-        {"piza onegaishimasu", "BakedPizza"},
-        {"sushi onegaishimasu", "Sushi"},
-        {"gohan onegaishimasu", "CookedRice"},
-        {"karee onegaishimasu", "CookedCurry"}
+        {"piza onegaishimasu", pizza},
+        {"sushi onegaishimasu", sushi},
+        {"gohan onegaishimasu", cookedRice},
+        {"karee onegaishimasu", curry}
     };
 
     Dictionary<string, string> Level2Portuguese = new Dictionary<string, string>()
     {
-        {"I would like some Pizza por favor", "BakedPizza"},
-        {"I would like some Sushi por favor", "Sushi"},
-        {"Por favor, posso comer Cooked Rice please", "CookedRice"},
-        {"Eu preciso de um pouco de Curry please", "CookedCurry"}
+        {"I would like some Pizza por favor", pizza},
+        {"I would like some Sushi por favor", sushi},
+        {"Por favor, posso comer Cooked Rice please", cookedRice},
+        {"Eu preciso de um pouco de Curry please", curry}
     };
 
     Dictionary<string, string> Level3Portuguese = new Dictionary<string, string>()
     {
-        {"Eu gostaria de um pouco de pizza, por favor", "BakedPizza"},
-        {"Por favor, posso comer sushi", "Sushi"},
-        {"Arroz cozido para mim", "CookedRice"},
-        {"Um pedido de curry, por favor", "CookedCurry"}
+        {"Eu gostaria de um pouco de pizza, por favor", pizza},
+        {"Por favor, posso comer sushi", sushi},
+        {"Arroz cozido para mim", cookedRice},
+        {"Um pedido de curry, por favor", curry}
     };
 
     Dictionary<string, string> Level2French = new Dictionary<string, string>()
     {
-        {"Je voudrais une Pizza please", "BakedPizza"},
-        {"I would like some Sushi s'il vous plait", "Sushi"},
-        {"I would like some Riz s'il vous plait", "CookedRice"},
-        {"Je voudrais une Curry please", "CookedCurry"}
+        {"Je voudrais une Pizza please", pizza},
+        {"I would like some Sushi s'il vous plait", sushi},
+        {"I would like some Riz s'il vous plait", cookedRice},
+        {"Je voudrais une Curry please", curry}
     };
 
     Dictionary<string, string> Level3French = new Dictionary<string, string>()
     {
-        {"Je voudrais une pizza s'il vous plait", "BakedPizza"},
-        {"Je voudrais une Sushi s'il vous plait", "Sushi"},
-        {"Je voudrais un Riz s'il vous plait", "CookedRice"},
-        {"Je voudrais un Curry s'il vous plait", "CookedCurry"}
+        {"Je voudrais une pizza s'il vous plait", pizza},
+        {"Je voudrais un Sushi s'il vous plait", sushi},
+        {"Je voudrais un Riz s'il vous plait", cookedRice},
+        {"Je voudrais un Curry s'il vous plait", curry}
     };
     void Start()
     {
@@ -132,7 +136,7 @@ public class QueueManager : MonoBehaviour
                         //Game Over
                         soundPlayer.GetComponent<SoundPlayer>().StopPlayingMusic();
                         pauseMenu.GetComponent<PauseMenu>().GameOver();
-                        DisplayMessage("GAME OVER");
+                        DisplayMessage("");
                         soundPlayer.GetComponent<SoundPlayer>().PlayWrong();
                     }
                     else
@@ -211,11 +215,12 @@ public class QueueManager : MonoBehaviour
     public void openExitDoor()
     {
         if(customerCount<3)
-            newSpawnTime=newSpawnTime-50;
+            newSpawnTime-=50;
         else if(customerCount<5)
-            newSpawnTime=newSpawnTime-25;
+            newSpawnTime-=25;
         customerCount--;
         Score++;
+        newSpawnTime+=5;
         DisplayScore();
         ExitDoor.GetComponent<Door>().DoorOpen();
     }

@@ -12,17 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb188c789ecc0b74485cc3e65407441b, type: 3}
   m_Name: FishPortion
   m_EditorClassIdentifier: 
-  foodId: FishPortion
-  foodSprite: {fileID: -881831730, guid: 2428a75e69bfe6c449f1e9a5b4cfbb37, type: 3}
+  foodId: Tuna
+  foodSprite: {fileID: -1740025920, guid: 1bef8db0f53972e43bc57f2b42d30ca4, type: 3}
   value: 0
   isBakeable: 0
   isCookable: 0
-  isWorkable: 0
-  isMixable: 1
-  mixableFoodsIds:
-  - RiceSeaweed
+  isWorkable: 1
+  isMixable: 0
+  mixableFoodsIds: []
   bakeEvolveId: 
   cookEvolveId: 
-  workEvolveId: 
-  mixEvolveId:
-  - Sushi
+  workEvolveId: Raw Fish
+  mixEvolveId: []

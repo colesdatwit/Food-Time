@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb188c789ecc0b74485cc3e65407441b, type: 3}
   m_Name: WorkedChicken
   m_EditorClassIdentifier: 
-  foodId: CookedWorkedChicken
+  foodId: Chopped Chicken
   foodSprite: {fileID: 21300000, guid: 6c924b943f92fdb41905beb7af33e429, type: 3}
   value: 0
   isBakeable: 0
@@ -20,9 +20,9 @@ MonoBehaviour:
   isWorkable: 0
   isMixable: 1
   mixableFoodsIds:
-  - CookedRice
+  - Cooked Rice
   bakeEvolveId: 
   cookEvolveId: 
   workEvolveId: 
   mixEvolveId:
-  - ChickenRice
+  - Chicken and Rice

@@ -11,6 +11,7 @@ TagManager:
   - PauseMenu
   - QueueManager
   - LanguageHelp
+  - GameOverMenu
   layers:
   - Default
   - TransparentFX

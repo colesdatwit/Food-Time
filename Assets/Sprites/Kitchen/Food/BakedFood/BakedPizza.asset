@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb188c789ecc0b74485cc3e65407441b, type: 3}
   m_Name: BakedPizza
   m_EditorClassIdentifier: 
-  foodId: BakedPizza
+  foodId: Pizza
   foodSprite: {fileID: 21300000, guid: 1f0c2b97f8b857b49b999dd273dfaa1f, type: 3}
   value: 0
   isBakeable: 0
