@@ -132,7 +132,7 @@ public class QueueManager : MonoBehaviour
                         //Game Over
                         soundPlayer.GetComponent<SoundPlayer>().StopPlayingMusic();
                         pauseMenu.GetComponent<PauseMenu>().GameOver();
-                        DisplayMessage("GAME OVER");
+                        DisplayMessage("");
                         soundPlayer.GetComponent<SoundPlayer>().PlayWrong();
                     }
                     else
@@ -211,11 +211,12 @@ public class QueueManager : MonoBehaviour
     public void openExitDoor()
     {
         if(customerCount<3)
-            newSpawnTime=newSpawnTime-50;
+            newSpawnTime-=50;
         else if(customerCount<5)
-            newSpawnTime=newSpawnTime-25;
+            newSpawnTime-=25;
         customerCount--;
         Score++;
+        newSpawnTime+=5;
         DisplayScore();
         ExitDoor.GetComponent<Door>().DoorOpen();
     }

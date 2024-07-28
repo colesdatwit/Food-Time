@@ -59,6 +59,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
         isPaused = true;
         gameOver = true;
+        GameObject.FindGameObjectWithTag("GameOverMenu").GetComponent<GameOverScript>().Activate();
     }
 
     public void resumeGame()
