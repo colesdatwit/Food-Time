@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb188c789ecc0b74485cc3e65407441b, type: 3}
   m_Name: RiceSeaweed
   m_EditorClassIdentifier: 
-  foodId: RiceSeaweed
+  foodId: Rice and Seaweed
   foodSprite: {fileID: 21300000, guid: 86e4dd0f5278e2946905d7f2b0d4ef2a, type: 3}
   value: 0
   isBakeable: 0
@@ -20,7 +20,7 @@ MonoBehaviour:
   isWorkable: 0
   isMixable: 1
   mixableFoodsIds:
-  - FishPortion
+  - Raw Fish
   bakeEvolveId: 
   cookEvolveId: 
   workEvolveId: 

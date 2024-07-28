@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgrMusic: {fileID: 8300000, guid: 51cd9f3d79c10494cb9977fe48382d64, type: 3}
-  volume: 0.01
+  volume: 0.1
 --- !u!4 &382907350
 Transform:
   m_ObjectHideFlags: 0
@@ -875,7 +875,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 950c77492be45b044bb27595a9141f65, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6c014506a22cd824d9b3f07611a7c458, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1012,7 +1012,7 @@ GameObject:
   - component: {fileID: 1309326768}
   - component: {fileID: 1309326769}
   m_Layer: 0
-  m_Name: Box (1)
+  m_Name: FoodBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1028,7 +1028,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 205.00002, y: -65, z: 1}
-  m_LocalScale: {x: 71, y: 70, z: 54}
+  m_LocalScale: {x: 94, y: 95, z: 54}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1266707501}
@@ -1074,7 +1074,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7829c889037d989409dae5aae9e69a9a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a3c4578710599ac488b642bc8fae37d3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1096,7 +1096,7 @@ GameObject:
   - component: {fileID: 1698250900}
   - component: {fileID: 1698250901}
   m_Layer: 0
-  m_Name: Box
+  m_Name: TitleBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1111,8 +1111,8 @@ Transform:
   m_GameObject: {fileID: 1698250899}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.199987, y: 148, z: 1}
-  m_LocalScale: {x: 49, y: 39, z: 54}
+  m_LocalPosition: {x: -15, y: 149, z: 1}
+  m_LocalScale: {x: 50, y: 55, z: 54}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1266707501}
@@ -1158,7 +1158,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7b29924ae0abab34ba46c34f2727558e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6fe6ae82d2b809749b3473f284eda29a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1283,7 +1283,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2ac0fe6d8565f254684e303fc3401b03, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c674803cf8b39c3448486e2f6941c351, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb188c789ecc0b74485cc3e65407441b, type: 3}
   m_Name: WorkedTomato
   m_EditorClassIdentifier: 
-  foodId: WorkedTomato
+  foodId: Sliced Tomato
   foodSprite: {fileID: 21300000, guid: 33cdc213d97ee344fa3cca2fb7d3d8e9, type: 3}
   value: 0
   isBakeable: 0
@@ -20,11 +20,11 @@ MonoBehaviour:
   isWorkable: 0
   isMixable: 1
   mixableFoodsIds:
-  - WorkedDough
-  - ChickenRice
+  - Worked Dough
+  - Chicken and Rice
   bakeEvolveId: 
   cookEvolveId: 
   workEvolveId: 
   mixEvolveId:
-  - DoughSauce
-  - UncookedCurry
+  - Dough with Sauce
+  - Uncooked Curry

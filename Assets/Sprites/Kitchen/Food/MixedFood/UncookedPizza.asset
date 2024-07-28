@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb188c789ecc0b74485cc3e65407441b, type: 3}
   m_Name: UncookedPizza
   m_EditorClassIdentifier: 
-  foodId: UncookedPizza
+  foodId: Uncooked Pizza
   foodSprite: {fileID: 21300000, guid: 6907e0dfbb734f6418c69ec69c8f65a4, type: 3}
   value: 0
   isBakeable: 1
@@ -20,7 +20,7 @@ MonoBehaviour:
   isWorkable: 0
   isMixable: 0
   mixableFoodsIds: []
-  bakeEvolveId: BakedPizza
+  bakeEvolveId: Pizza
   cookEvolveId: 
   workEvolveId: 
   mixEvolveId: []
