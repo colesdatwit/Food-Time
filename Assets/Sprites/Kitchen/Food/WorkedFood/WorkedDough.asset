@@ -20,7 +20,7 @@ MonoBehaviour:
   isWorkable: 0
   isMixable: 1
   mixableFoodsIds:
-  - Sliced Tomatoes
+  - Sliced Tomato
   bakeEvolveId: 
   cookEvolveId: 
   workEvolveId: 

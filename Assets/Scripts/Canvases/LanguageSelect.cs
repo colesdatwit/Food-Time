@@ -12,6 +12,7 @@ public class LanguageSelect : MonoBehaviour
     public Sprite spanishHelp;
     public Sprite japaneseHelp;
     public Sprite frenchHelp;
+    public Sprite portugueseHelp;
 
     private QueueManager queueManager;
     private GameObject pauseMenu;
@@ -46,7 +47,7 @@ public class LanguageSelect : MonoBehaviour
         if (queueManager != null)
         {
             queueManager.language = "Portuguese";
-            //GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>().helpSprite = portugeseHelp;
+            GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>().helpSprite = portugueseHelp;
             Debug.Log("Language set to Portuguese");
             DeactivateLanguageSelect();
         }

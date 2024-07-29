@@ -20,6 +20,7 @@ public class GameOverScript : MonoBehaviour
     }
     public void MainMenu()
     {
+        GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>().resumeGame();
         SceneManager.LoadSceneAsync("Main Menu");
     }
     public void Quit()

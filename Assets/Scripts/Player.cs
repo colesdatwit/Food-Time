@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
                 anim.SetBool("isWalkingUp", false);
                 anim.SetBool("isWalkingDown", false);
                 foodObject.transform.position = new Vector3(gameObject.transform.position.x+(float)0.3,gameObject.transform.position.y-(float)0.45,gameObject.transform.position.z+1);
-                collider.transform.position = new Vector3(gameObject.transform.position.x+(float)0.35,gameObject.transform.position.y-(float)0.2,gameObject.transform.position.z);
+                collider.transform.position = new Vector3(gameObject.transform.position.x+(float)0.36,gameObject.transform.position.y-(float)0.2,gameObject.transform.position.z);
             }
             if (horizontal < 0)
             {       //checks to see if player is WALKING LEFT
@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
                 anim.SetBool("isWalkingUp", false);
                 anim.SetBool("isWalkingDown", false);
                 foodObject.transform.position = new Vector3(gameObject.transform.position.x-(float)0.3,gameObject.transform.position.y-(float)0.45,gameObject.transform.position.z+1);
-                collider.transform.position = new Vector3(gameObject.transform.position.x-(float)0.35,gameObject.transform.position.y-(float)0.2,gameObject.transform.position.z);
+                collider.transform.position = new Vector3(gameObject.transform.position.x-(float)0.36,gameObject.transform.position.y-(float)0.2,gameObject.transform.position.z);
             }
             if (vertical > 0 && horizontal == 0)
             {      //checks if player not moving horizontally and MOVING UP 
