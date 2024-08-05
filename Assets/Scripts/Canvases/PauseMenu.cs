@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenu;
     public static bool isPaused;
     private bool gameOver = false;
+    public bool langSelect = false;
 
     public Sprite helpSprite;
 
@@ -20,7 +21,7 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)&&!gameOver)
+        if (Input.GetKeyDown(KeyCode.Escape)&&!langSelect&&!gameOver)
         {
             if (isPaused) resumeGame();
             else if (!isPaused) pauseGame();

@@ -21,6 +21,7 @@ public class LanguageSelect : MonoBehaviour
     {
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
         pauseMenu.GetComponent<PauseMenu>().pause();
+        pauseMenu.GetComponent<PauseMenu>().langSelect = true;
         // Find the QueueManager instance in the scene
         queueManager = FindObjectOfType<QueueManager>();
 
@@ -80,6 +81,7 @@ public class LanguageSelect : MonoBehaviour
         if (languageSelectCanvas != null)
         {
             pauseMenu.GetComponent<PauseMenu>().resumeGame();
+            pauseMenu.GetComponent<PauseMenu>().langSelect = false;
             languageSelectCanvas.gameObject.SetActive(false);
         }
         else
