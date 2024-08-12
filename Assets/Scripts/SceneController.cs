@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
+    public GameObject tutorialMenu;
+
     public AudioClip bgrMusic;
 
     public float volume;
@@ -16,12 +18,18 @@ public class SceneController : MonoBehaviour
     {
         SoundPlayer = GetComponent<AudioSource>();
         PlayBackgroundMusic();
+        tutorialMenu.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void showTutorial()
+    {
+        tutorialMenu.SetActive(true);
     }
 
     public void LoadGame()

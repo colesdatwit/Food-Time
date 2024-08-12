@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 44734312}
   - component: {fileID: 44734311}
   m_Layer: 5
-  m_Name: PauseMenu
+  m_Name: TutorialMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -163,7 +163,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 289.99997, y: 310}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &44734311
 MonoBehaviour:
@@ -459,6 +459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c01536db062754141904c2e4113e957e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tutorialMenu: {fileID: 44734309}
   bgrMusic: {fileID: 8300000, guid: 51cd9f3d79c10494cb9977fe48382d64, type: 3}
   volume: 0.05
 --- !u!4 &382907350
@@ -1011,7 +1012,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -463, y: -232}
+  m_AnchoredPosition: {x: -359, y: -230.67}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &808129869
@@ -1058,9 +1059,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 895212906}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: LoadMainMenu
+      - m_Target: {fileID: 382907349}
+        m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
+        m_MethodName: LoadGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1252,7 +1253,6 @@ GameObject:
   - component: {fileID: 895212909}
   - component: {fileID: 895212908}
   - component: {fileID: 895212907}
-  - component: {fileID: 895212906}
   m_Layer: 5
   m_Name: TutorialCanvas
   m_TagString: PauseMenu
@@ -1260,18 +1260,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &895212906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 895212905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eab798e5317c56340a91054cf425d83c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &895212907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1389,7 +1377,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 420, y: 190}
+  m_AnchoredPosition: {x: 370, y: 190}
   m_SizeDelta: {x: 315.59, y: 119.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &972107178
@@ -1412,37 +1400,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '-Brick oven
-
-    Interact with this
-
-    to cook pizza
-
-
-    -Mixing counter
-
-    Interact
-    with this
-
-    to combine food
-
-
-    -Working counter
-
-    interact with this
-
-    to
-    chop/work food
-
-
-    -Stove
-
-    Interact with this
-
-    to cook a variety
-
-    of
-    foods'
+  m_text: "-Brick oven\nInteract with this\nto cook a placed \npizza\n\n\n-Mixing
+    counter\nInteract with this\nto combine placed \nfood with held food\n\n\n-Working
+    counter\ninteract with this\nto chop/work \nplaced food\n\n\n-Stove\nInteract
+    with this\nto cook a variety\nof foods when they\nare placed on it\n\n\n-Serving
+    Counter\nPlace foods here to\nserve it to the customer"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -1469,8 +1431,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
-  m_fontSizeBase: 32
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1505,7 +1467,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -5.1794205, y: 0, z: -158.02496, w: -296.6992}
+  m_margin: {x: -5.1794205, y: -39.017467, z: -16.819, w: -436.32526}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1745,7 +1707,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -463, y: 100}
+  m_AnchoredPosition: {x: -359, y: 101.33}
   m_SizeDelta: {x: 315.59, y: 119.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1587825166
@@ -1808,8 +1770,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
-  m_fontSizeBase: 32
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1976,7 +1938,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -463, y: 214.67}
+  m_AnchoredPosition: {x: -359, y: 216}
   m_SizeDelta: {x: 315.59, y: 119.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1898063809
@@ -2160,7 +2122,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 382907349}
         m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
-        m_MethodName: LoadGame
+        m_MethodName: showTutorial
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2242,8 +2204,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1312, y: 600}
+  m_AnchoredPosition: {x: -0.00005722046, y: 0}
+  m_SizeDelta: {x: 1072, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2116658663
 MonoBehaviour:
@@ -2265,7 +2227,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a1507ffbb13b4944faa1dd74321569b7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e8aa7c5203306c34cb3331b694bb163f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

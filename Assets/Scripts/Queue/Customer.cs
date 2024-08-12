@@ -17,7 +17,14 @@ public class Customer : MonoBehaviour
     // Method to set the target position for the NPC
     public void SetTargetPosition(Vector3 newPosition)
     {
-        targetPosition = newPosition;
+        if(newPosition == new Vector3(0,0,0))
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            targetPosition = newPosition;
+        }
     }
 
     void Update()

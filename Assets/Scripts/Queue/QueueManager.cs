@@ -33,6 +33,8 @@ public class QueueManager : MonoBehaviour
     static string sushi = "Sushi";
     static string cookedRice = "Cooked Rice";
     static string curry = "Curry";
+
+    #region Dictionaries
     Dictionary<string, string> Level1 = new Dictionary<string, string>()
     {
         {"I would like some Pizza please", pizza},
@@ -104,6 +106,8 @@ public class QueueManager : MonoBehaviour
         {"Je voudrais un Riz s'il vous plait", cookedRice},
         {"Je voudrais un Curry s'il vous plait", curry}
     };
+    #endregion
+
     void Start()
     {
         positionFilled = new bool[queuePositions.Length];
@@ -111,6 +115,8 @@ public class QueueManager : MonoBehaviour
         messageBox.gameObject.SetActive(false); // Hide the message box initially
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
         soundPlayer = GameObject.FindGameObjectWithTag("SoundPlayer");
+        if(newSpawnTime<350)
+            newSpawnTime = 350;
         newSpawnTime=spawnTime;
     }
 
@@ -123,7 +129,7 @@ public class QueueManager : MonoBehaviour
             {
                 if(customerCount < 7)
                 {
-                    EntryDoor.GetComponent<Door>().knocking=false;
+                    EntryDoor.GetComponent<Door>().setKnock(false);
                     SpawnNPC();
                     customerCount++;
                     spawnTime=newSpawnTime;
@@ -131,7 +137,7 @@ public class QueueManager : MonoBehaviour
                 }
                 else
                 {
-                    if(EntryDoor.GetComponent<Door>().knocking)
+                    if(EntryDoor.GetComponent<Door>().getKnock())
                     {
                         //Game Over
                         soundPlayer.GetComponent<SoundPlayer>().StopPlayingMusic();
@@ -143,7 +149,7 @@ public class QueueManager : MonoBehaviour
                     {
                         newSpawnTime=newSpawnTime-5;
                         soundPlayer.GetComponent<SoundPlayer>().PlayKnock();
-                        EntryDoor.GetComponent<Door>().knocking=true;
+                        EntryDoor.GetComponent<Door>().setKnock(true);
                         EntryDoor.GetComponent<Door>().DoorKnock();
                         spawnTime=newSpawnTime;
                         spawnTimer = 0;
@@ -215,13 +221,13 @@ public class QueueManager : MonoBehaviour
     public void openExitDoor()
     {
         if(customerCount<3)
-            newSpawnTime-=50;
-        else if(customerCount<5)
-            newSpawnTime-=25;
+            newSpawnTime-=20;
+        else if(customerCount<6)
+            newSpawnTime-=10;
         customerCount--;
         Score++;
-        newSpawnTime+=5;
         DisplayScore();
+        EntryDoor.GetComponent<Door>().setKnock(false);
         ExitDoor.GetComponent<Door>().DoorOpen();
     }
 
